@@ -7,10 +7,10 @@
                 <div class="col-md-12">
                     <div class="d-md-flex align-items-center mb-3 mx-2">
                         <div class="mb-md-0 mb-3">
-                            <h3 class="font-weight-bold mb-0">Hello, Noah</h3>
-                            <p class="mb-0">Apps you might like!</p>
+                            <h3 class="font-weight-bold mb-0">Bienvenue, {{ auth()->user()->name }}</h3>
+
                         </div>
-                        <button type="button"
+                        {{-- <button type="button"
                             class="btn btn-sm btn-white btn-icon d-flex align-items-center mb-0 ms-md-auto mb-sm-0 mb-2 me-2">
                             <span class="btn-inner--icon">
                                 <span class="p-1 bg-success rounded-circle d-flex ms-auto me-2">
@@ -28,7 +28,7 @@
                                 </svg>
                             </span>
                             <span class="btn-inner--text">Sync</span>
-                        </button>
+                        </button> --}}
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                                     <div
                                         class="card card-background shadow-none border-radius-xl card-background-after-none align-items-start mb-0">
                                         <div class="full-background bg-cover"
-                                            style="background-image: url('../assets/img/img-2.jpg')"></div>
+                                            style="background-image: url('../assets/img/img-3.jpg')"></div>
                                         <div class="card-body text-start px-3 py-0 w-100">
                                             <div class="row mt-12">
                                                 <div class="col-sm-3 mt-auto">
@@ -172,6 +172,124 @@
                     <div class="swiper-button-next"></div>
                 </div>
             </div>
+            {{-- fin image scrolante --}}
+
+            {{-- formulaire d'inscription --}}
+            <form action='' method="POST">
+                @csrf
+                @method('post')
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 col-12">
+                        @if (session('error'))
+                            <div class="alert alert-danger" role="alert" id="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                        @if (session('success'))
+                            <div class="alert alert-success" role="alert" id="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <div class="mb-5 row justify-content-center">
+                    <div class="col-lg-9 col-12 ">
+                        <div class="card " id="basic-info">
+                            <div class="card-header">
+                                <h5>S'inscrire dans une formation</h5>
+                            </div>
+                            <div class="pt-0 card-body">
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="nom">Nom <span class="text-danger">*</span></label>
+                                        <input type="text" name="nom" id="nom"
+                                            value="{{ old('nom', auth()->user()->nom) }}" class="form-control">
+                                        @error('name')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="prenom">Prénom <span class="text-danger">*</span></label>
+                                        <input type="text" name="prenom" id="prenom"
+                                            value="{{ old('prenom', auth()->user()->prenom) }}" class="form-control">
+                                        @error('name')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="etablissement">Etablissement <span class="text-danger">*</span></label>
+                                        <select name="etablissement" id="etablissement" placeholder="Etablissement"
+                                            class="form-control">
+                                            <option value="EMI">EMI</option>
+                                            <option value="ENS">ENS</option>
+                                            <option value="ENSAM">ENSAM</option>
+                                            <option value="ENSIAS">ENSIAS</option>
+                                            <option value="EST-salé">EST-salé</option>
+                                            <option value="FLSH">FLSH</option>
+                                            <option value="FMD">FMD</option>
+                                            <option value="FMP">FMP</option>
+                                            <option value="FSE">FSE</option>
+                                            <option value="FSR">FSR</option>
+                                            <option value="FSJES-AGDAL">FSJES-AGDAL</option>
+                                            <option value="FSJES-salé">FSJES-salé</option>
+                                            <option value="FSJES-souissi">FSJES-souissi</option>
+                                        </select>
+                                        @error('etablissement')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="ancienneté">Ancienneté dans l'enseignement <span class="text-danger">*</span></label>
+                                        <select name="ancienneté" id="ancienneté"
+                                            value="ancienneté" class="form-control">
+                                            <option value="1-4">1-4 ans </option>
+                                            <option value="5-12">5-12 ans</option>
+                                            <option value="+12">+12 ans</option>
+
+                                        </select>
+                                        @error('ancienneté')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="email">Email <span class="text-danger">*</span></label>
+                                        <input type="email" name="email" id="email"
+                                            value="{{ old('email', auth()->user()->email) }}"
+                                            class="form-control">
+                                        @error('email')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-6">
+                                        <label for="telephone">Telephone  <span class="text-danger">*</span></label>
+                                        <input type="text" name="telephone" id="telephone" placeholder="+212"
+                                            value="{{ old('phone', auth()->user()->phone) }}" class="form-control">
+                                        @error('phone')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row p-2">
+                                    <label for="motivations">Motivations <span class="text-danger">*</span></label>
+                                    <textarea name="motivations" id="motivations" rows="2" class="form-control"></textarea>
+                                    @error('motivations')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <button type="submit" class="mt-6 mb-0 btn btn-white btn-sm float-end">S'inscrire</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
             <div class="row my-4">
                 <div class="col-lg-4 col-md-6 mb-md-0 mb-4">
                     <div class="card shadow-xs border h-100">

@@ -1,8 +1,8 @@
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 bg-slate-900 fixed-start " id="sidenav-main">
-    <div class="sidenav-header">
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 bg-slate-900 fixed-start bg-custom" id="sidenav-main">
+    <div class="sidenav-header" style="text-align: center">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
-        <a href=""><img src="public\assets\img\logo_DLC.ico" alt="CIP" style="width:50px;height:60px;"></a>
+        <a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG-XwB2jQgl03o2AZ_-LUf5bZNGikUPBnegXWFcSkz3Q&s" alt="DLC" style="width:100px;height:90px;text-align:center"></a>
     </div>
     <div class="collapse navbar-collapse px-4  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
