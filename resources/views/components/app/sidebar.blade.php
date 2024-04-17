@@ -1,4 +1,4 @@
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 bg-slate-900 fixed-start bg-custom" id="sidenav-main">
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 bg-white fixed-start">
     <div class="sidenav-header" style="text-align: center">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
@@ -126,9 +126,9 @@
                 </a>
             </li>
             <li class="nav-item border-start my-0 pt-2">
-                <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('users-management') ? 'active' : '' }}"
-                    href="{{ route('users-management') }}">
-                    <span class="nav-link-text ms-1">User Management</span>
+                <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('session.formation') ? 'active' : '' }}"
+                    href="{{ route('session.formation') }}">
+                    <span class="nav-link-text ms-1">Session planifier</span>
                 </a>
             </li>
             <li class="nav-item mt-2">
@@ -143,12 +143,20 @@
                 </div>
             </li>
             <li class="nav-item border-start my-0 pt-2">
-                <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('profile') ? 'active' : '' }}"
-                    href="{{ route('profile') }}">
-                    <span class="nav-link-text ms-1">Profile</span>
+                <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('users-management') ? 'active' : '' }}"
+                    href="{{ route('users-management') }}">
+                    <span class="nav-link-text ms-1">User Management</span>
                 </a>
             </li>
+
             <li class="nav-item border-start my-0 pt-2">
+                <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('profile') ? 'active' : '' }}"
+                    href="{{ route('profile') }}">
+                    <span class="nav-link-text ms-1">Profile-admin</span>
+                </a>
+            </li>
+            
+            {{-- <li class="nav-item border-start my-0 pt-2">
                 <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('signin') ? 'active' : '' }}"
                     href="{{ route('signin') }}">
                     <span class="nav-link-text ms-1">Sign In</span>
@@ -159,7 +167,7 @@
                     href="{{ route('signup') }}">
                     <span class="nav-link-text ms-1">Sign Up</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 

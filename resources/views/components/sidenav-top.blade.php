@@ -1,28 +1,31 @@
-<nav class="navbar bg-slate-900 navbar-expand-lg flex-wrap top-0 px-0 py-0">
+<nav class="navbar bg-white navbar-expand-lg flex-wrap top-0 px-0 py-0">
     <div class="container py-2">
         <nav aria-label="breadcrumb">
-            <div class="d-flex align-items-center">
-                <span class="px-3 font-weight-bold text-lg text-white me-4">Corporate UI</span>
+            <div class="sidenav-header" style="text-align: center">
+                <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+                    aria-hidden="true" id="iconSidenav"></i>
+                <a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG-XwB2jQgl03o2AZ_-LUf5bZNGikUPBnegXWFcSkz3Q&s" alt="DLC" style="width:100px;height:90px;text-align:center"></a>
             </div>
+        
         </nav>
         <ul class="navbar-nav d-none d-lg-flex">
             <li class="nav-item px-3 py-3 border-radius-sm  d-flex align-items-center">
-                <a href="{{ route('dashboard') }}" class="nav-link text-white p-0">
+                <a href="{{ route('dashboard') }}" class="nav-link text-black p-0">
                     Dashboard
                 </a>
             </li>
             <li class="nav-item px-3 py-3 border-radius-sm  d-flex align-items-center">
-                <a href="{{ route('tables') }}" class="nav-link text-white p-0">
+                <a href="{{ route('tables') }}" class="nav-link text-black p-0">
                     Tables
                 </a>
             </li>
             {{-- <li class="nav-item px-3 py-3 border-radius-sm bg-slate-800 d-flex align-items-center">
-                <a href="{{ route('wallet') }}" class="nav-link text-white p-0">
+                <a href="{{ route('wallet') }}" class="nav-link text-black p-0">
                     Wallet
                 </a>
             </li> --}}
             {{-- <li class="nav-item px-3 py-3 border-radius-sm  d-flex align-items-center">
-                <a href="{{ route('RTL') }}" class="nav-link text-white p-0">
+                <a href="{{ route('RTL') }}" class="nav-link text-black p-0">
                     RTL
                 </a>
             </li> --}}
@@ -30,7 +33,7 @@
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <ul class="navbar-nav ms-md-auto  justify-content-end">
                 <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                    <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+                    <a href="javascript:;" class="nav-link text-black p-0" id="iconNavbarSidenav">
                         <div class="sidenav-toggler-inner">
                             <i class="sidenav-toggler-line bg-white"></i>
                             <i class="sidenav-toggler-line bg-white"></i>
@@ -38,8 +41,11 @@
                         </div>
                     </a>
                 </li>
-                <li class="nav-item px-3 d-flex align-items-center">
-                    <a href="javascript:;" class="nav-link text-white p-0">
+
+                {{-- setting button --}}
+
+                {{-- <li class="nav-item px-3 d-flex align-items-center">
+                    <a href="javascript:;" class="nav-link text-black p-0">
                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"
                             class="fixed-plugin-button-nav cursor-pointer" viewBox="0 0 24 24" fill="currentColor">
                             <path fill-rule="evenodd"
@@ -47,9 +53,9 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                     </a>
-                </li>
-                <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                    <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton"
+                </li> --}}
+                {{-- <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                    <a href="javascript:;" class="nav-link text-black p-0" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                             fill="currentColor" class="cursor-pointers">
@@ -135,16 +141,21 @@
                             </a>
                         </li>
                     </ul>
+                </li> --}}
+                {{-- <li class="nav-item dropdown d-flex align-items-center ps-2">
+                    <a href="javascript:;" class="nav-link text-black font-weight-bold px-0">
+                        <div class="avatar avatar-sm position-relative me-2">
+                            <img src="../assets/img/team-2.jpg" alt="profile_image" class="w-100 border-radius-md">
+                        </div>
+                    </a>
+                </li> --}}
+                <li class="nav-item dropdown d-flex align-items-center ps-2">
+                    <form method="POST" action="{{ route('logout') }}" class="nav-link px-0">
+                        @csrf
+                        <button type="submit" class="btn btn-sm btn-outline-primary">Déconnexion</button>
+                    </form>
                 </li>
-                <li class="nav-item d-flex align-items-center ps-2">
-                    <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
-                <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                    <div class="avatar avatar-sm position-relative">
-                        <img src="../assets/img/team-2.jpg" alt="profile_image" class="w-100 border-radius-md">
-                    </div>
-                </li>
-                </a>
-                </li>
+                                                
             </ul>
         </div>
     </div>
@@ -152,24 +163,24 @@
     <div class="container pb-3 pt-3">
         <ul class="navbar-nav d-none d-lg-flex">
             <li class="nav-item border-radius-sm px-3 py-3 me-2  d-flex align-items-center">
-                <a href="{{ route('profile') }}" class="nav-link text-white p-0">
+                <a href="{{ route('profile') }}" class="nav-link text-black p-0">
                     Profile
                 </a>
             </li>
-            <li class="nav-item border-radius-sm px-3 py-3 me-2  d-flex align-items-center">
-                <a href="{{ route('signin') }}" class="nav-link text-white p-0">
+            {{-- <li class="nav-item border-radius-sm px-3 py-3 me-2  d-flex align-items-center">
+                <a href="{{ route('signin') }}" class="nav-link text-black p-0">
                     Sign In
                 </a>
             </li>
             <li class="nav-item border-radius-sm px-3 py-3 me-2  d-flex align-items-center">
-                <a href="{{ route('signup') }}" class="nav-link text-white p-0">
+                <a href="{{ route('signup') }}" class="nav-link text-black p-0">
                     Sign Up
                 </a>
-            </li>
+            </li> --}}
         </ul>
-        <div class="ms-md-auto p-0 d-flex align-items-center w-sm-20">
+        {{-- <div class="ms-md-auto p-0 d-flex align-items-center w-sm-20">
             <div class="input-group border-dark">
-                <span class="input-group-text border-dark bg-dark text-white">
+                <span class="input-group-text border-dark bg-dark text-black">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="none"
                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="opacity-8">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -179,6 +190,6 @@
                 <input type="text" class="form-control border-dark bg-dark" placeholder="Search"
                     onfocus="focused(this)" onfocusout="defocused(this)">
             </div>
-        </div>
+        </div> --}}
     </div>
 </nav>

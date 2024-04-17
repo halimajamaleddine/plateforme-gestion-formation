@@ -277,6 +277,18 @@
                                     </div>
                                 </div>
                                 <div class="row p-2">
+                                    <label for="grade">Grade <span class="text-danger">*</span></label>
+                                    <select name="grade" id="grade" rows="2" class="form-control">
+                                        <option value="A">Grade - A</option>
+                                        <option value="B">Grade - B</option>
+                                        <option value="C">Grade - C</option>
+
+                                    </select>
+                                    @error('motivations')
+                                        <span class="text-danger text-sm">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="row p-2">
                                     <label for="motivations">Motivations <span class="text-danger">*</span></label>
                                     <textarea name="motivations" id="motivations" rows="2" class="form-control"></textarea>
                                     @error('motivations')
