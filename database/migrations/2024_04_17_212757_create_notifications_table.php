@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('notifications', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id_notification');
+            $table->foreign('id_enseignant')->constrained('enseignant_chercheurs');
+            $table->string('contenu', 100);
+            $table->timestamp('date')->useCurrent();
             $table->timestamps();
         });
     }

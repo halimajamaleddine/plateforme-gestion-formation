@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('session_de_formations', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id_sessionformation');
+            $table->date('datedebut');
+            $table->date('datefin');
+            $table->integer('salle');
+            $table->foreign('id_formateur')->constraines('formateurs');
             $table->timestamps();
         });
     }

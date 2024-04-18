@@ -3,14 +3,32 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Administrateur;
+use Laravel\Sanctum\HasApiTokens;
+use App\Models\EnseignantChercheur;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+
+    protected $table = 'users';
+
+    public function enseignantChercheur()
+    {
+        return $this->hasOne(EnseignantChercheur::class, 'id_user');
+    }
+
+    public function administrateur()
+    {
+        return $this->hasOne(Administrateur::class, 'id_user');
+    }
+
+
+
 
     /**
      * The attributes that are mass assignable.

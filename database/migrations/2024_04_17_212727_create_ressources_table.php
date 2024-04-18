@@ -12,10 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ressources', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id_ressource');
+            $table->string('nom', 100);
+            $table->string('type', 100);
+            $table->boolean('disponibilite');
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

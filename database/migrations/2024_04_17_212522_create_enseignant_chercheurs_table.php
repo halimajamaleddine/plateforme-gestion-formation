@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('enseignant_chercheurs', function (Blueprint $table) {
-            $table->id();
+            $table->id_enseignant();
             $table->timestamps();
+            $table->foreign('id_user')->constrained('users');
+            $table->string('etablissement')->nullable(false);
+            $table->integer('anciennete')->nullable(false);
+            $table->integer('grade')->nullable();
+
         });
     }
 

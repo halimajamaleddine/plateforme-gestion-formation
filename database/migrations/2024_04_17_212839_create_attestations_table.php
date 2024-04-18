@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('attestations', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id_attestation');
+            $table->foreign('id_enseignant')->constrained('enseignant_chercheurs');
+            $table->string('contenu', 100);
+            $table->date('date');
+             $table->timestamps();
         });
     }
 
