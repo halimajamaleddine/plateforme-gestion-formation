@@ -12,9 +12,18 @@ class Ressource extends Model
 
         protected $table = 'ressources';
 
+        protected $primaryKey = 'id_ressource';
+
+        protected $fillable = ['nom', 'type', 'disponibilite'];
+
         public function reservations()
         {
-            return $this->hasMany(Reservation::class, 'id_ressource');     }
+            return $this->hasMany(Reservation::class, 'id_ressource');
         }
+
+    }
+
+
+
 
 

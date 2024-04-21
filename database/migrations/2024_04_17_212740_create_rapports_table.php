@@ -12,14 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rapports', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id_rapport');
+            $table->foreign('id_formation')->constrained('formations');
+            $table->dateTime('date')->useCurrent();
+            $table->integer('dure')->comment('Durée en jours');
+            $table->string('contenu', 100);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('rapports');

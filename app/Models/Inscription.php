@@ -11,18 +11,25 @@ class Inscription extends Model
 {
     use HasFactory;
 
-    protected $table = 'inscriptions';
+        protected $table = 'inscriptions';
 
-    public function enseignant()
-    {
-        return $this->belongsTo(EnseignantChercheur::class, 'id_enseignant');
+        protected $primaryKey = 'id_inscription';
+
+        protected $fillable = ['id_enseignant', 'id_formateur'];
+
+
+        public function enseignantChercheur()
+        {
+            return $this->belongsTo(EnseignantChercheur::class, 'id_enseignant');
+        }
+
+        public function formateur()
+        {
+            return $this->belongsTo(Formateur::class, 'id_formateur');
+        }
+
     }
 
-    public function formateur()
-    {
-        return $this->belongsTo(Formateur::class, 'id_formateur');
-    }
 
-}
 
 

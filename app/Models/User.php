@@ -15,17 +15,19 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
 
-    protected $table = 'users';
+        use Notifiable;
 
-    public function enseignantChercheur()
-    {
-        return $this->hasOne(EnseignantChercheur::class, 'id_user');
-    }
+        protected $table = 'users';
 
-    public function administrateur()
-    {
-        return $this->hasOne(Administrateur::class, 'id_user');
-    }
+
+        protected $primaryKey = 'id_user';
+
+        protected $fillable = ['name', 'prenom', 'email', 'password', 'telephone', 'role'];
+
+
+        protected $dates = ['email_verified_at'];
+
+
 
 
 

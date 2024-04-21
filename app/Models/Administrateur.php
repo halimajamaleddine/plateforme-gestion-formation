@@ -10,12 +10,18 @@ class Administrateur extends Model
 {
     use HasFactory;
 
-    protected $table = 'administrateurs';
+        protected $table = 'administrateurs';
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'id_user');
+        protected $primaryKey = 'id_administrateur';
+
+        protected $fillable = ['id_user'];
+
+        public function user()
+        {
+            return $this->belongsTo(User::class, 'id_user');
+        }
+
     }
-}
+
 
 
