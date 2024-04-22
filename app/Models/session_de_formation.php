@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\reservation;
-use App\Models\formateur;
+use App\Models\Reservation;
+use App\Models\Formateur;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class session_de_formation extends Model
+class Session_de_formation extends Model
 {
     use HasFactory;
     protected $table = 'session_de_formation';
@@ -21,12 +21,12 @@ class session_de_formation extends Model
 
     public function formateur()
     {
-        return $this->belongsTo(formateur::class, 'id_formateur');
+        return $this->belongsTo(Formateur::class, 'id_formateur');
     }
 
 
     public function reservations()
     {
-        return $this->hasMany(reservation::class, 'id_sessionformation');
+        return $this->hasMany(Reservation::class, 'id_sessionformation');
     }
 }

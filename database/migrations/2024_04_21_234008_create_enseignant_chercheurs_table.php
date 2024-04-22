@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('etablissement')->nullable(false);
             $table->integer('anciennete')->nullable(false);
             $table->integer('grade')->nullable();
-            $table->timestamps();
+            $table->timestamps();-
         });
     }
 

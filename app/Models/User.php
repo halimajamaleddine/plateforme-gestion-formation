@@ -3,9 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Models\administrateur;
+use App\Models\Administrateur;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\enseignant_chercheur;
+use App\Models\Enseignant_chercheur;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -25,11 +25,11 @@ class User extends Authenticatable
         protected $fillable = ['name', 'prenom', 'email', 'password', 'telephone', 'role'];
         public function administrateur()
     {
-        return $this->hasOne(administrateur::class);
+        return $this->hasOne(Administrateur::class,'id_administrateur');
     }
     public function enseignant_chercheur()
     {
-        return $this->hasMany(enseignant_chercheur::class, 'id_enseignat');
+        return $this->hasMany(Enseignant_chercheur::class, 'id_enseignat');
     }
 
         protected $dates = ['email_verified_at'];

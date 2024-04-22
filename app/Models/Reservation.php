@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use session;
-use App\Models\enseignant_chercheur;
+use App\Models\Enseignant_chercheur;
+use App\Models\Ressource;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class reservations extends Model
+class Reservation extends Model
 {
     use HasFactory;
     protected $table = 'reservations';
@@ -19,18 +21,18 @@ class reservations extends Model
 
     public function sessionFormation()
     {
-        return $this->belongsTo(session_de_formation::class, 'id_sessionformation');
+        return $this->belongsTo(Session_de_formation::class, 'id_sessionformation');
     }
 
 
     public function ressource()
     {
-        return $this->belongsTo(Ressources::class, 'id_ressource');
+        return $this->belongsTo(Ressource::class, 'id_ressource');
     }
 
 
     public function enseignantChercheur()
     {
-        return $this->belongsTo(enseignant_chercheur::class, 'id_enseignant');
+        return $this->belongsTo(Enseignant_chercheur::class, 'id_enseignant');
     }
 }

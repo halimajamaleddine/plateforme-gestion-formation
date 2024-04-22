@@ -6,7 +6,7 @@ use App\Models\formation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class rapport extends Model
+class Rapport extends Model
 {
     use HasFactory;
     protected $table = 'rapports';
@@ -18,6 +18,6 @@ class rapport extends Model
 
     public function formation()
     {
-        return $this->belongsTo(formation::class, 'id_formation');
+        return $this->belongsTo(Formation::class, 'id_formation');
     }
 }
