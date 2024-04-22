@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('id_inscription');
             $table->integer('id_enseignant')->unsigned();
             $table->foreign('id_enseignant')->references('id_enseignant')->on('enseignant_chercheurs');
+            
             $table->integer('id_formateur')->unsigned();
             $table->foreign('id_formateur')->references('id_formateur')->on('formateurs');
             $table->timestamps();

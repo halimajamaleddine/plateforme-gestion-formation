@@ -29,7 +29,41 @@ class EnseignantChercheurController extends Controller
      */
     public function store(StoreEnseignantChercheurRequest $request)
     {
-        //
+        {
+            $validated = $request->validate([
+                'name' => 'required|string',
+                'prenom' => 'required|string',
+                'email' => 'required|string|email|unique:users',
+                'password' => 'required|string|min:6',
+                'telephone' => 'nullable|string',
+                'role' => 'nullable|string',
+                'etablissement' => 'required|string',
+                'anciennete' => 'required|integer',
+                'motivations' => 'required|string',
+                'grade' => 'nullable|string'
+
+            ]);
+
+            $user = User::create([
+                'name' => $validated->name,
+                'prenom' => $validated->prenom,
+                'email' => $validated->email,
+                'password' => bcrypt( $validated->password),
+                'telephone' => $validated->telephone,
+                'role' =>  $validated->role
+            ]);
+            Enseignant_chercheur::create([
+                'id_user' => $user->id,
+                'etablissement' => $request->etablissement,
+                'anciennete' => $request->anciennete,
+                'motivations' => $request->motivations,
+                'grade' => $request->grade
+            ]);
+
+
+            return response()->json(['message'=>'User creatde successfully'], 200);
+
+        }
     }
 
     /**

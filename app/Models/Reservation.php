@@ -3,9 +3,8 @@
 namespace App\Models;
 
 use session;
-use App\Models\Enseignant_chercheur;
 use App\Models\Ressource;
-
+use App\Models\Enseignant_chercheur;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -35,4 +34,4 @@ class Reservation extends Model
     {
         return $this->belongsTo(Enseignant_chercheur::class, 'id_enseignant');
     }
-}
+};

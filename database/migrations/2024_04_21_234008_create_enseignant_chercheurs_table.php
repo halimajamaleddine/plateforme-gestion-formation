@@ -14,11 +14,14 @@ return new class extends Migration
         Schema::create('enseignant_chercheurs', function (Blueprint $table) {
             $table->increments('id_enseignant');
             $table->integer('id_user')->unsigned();
-            $table->foreign('id_user')->references('id_user')->on('users');
+            $table->foreign('id_user')->references('id_user')->on('users')
+            ->onDelete('CASCADE')
+            ->onUpdate('CASCADE');
             $table->string('etablissement')->nullable(false);
             $table->integer('anciennete')->nullable(false);
-            $table->integer('grade')->nullable();
-            $table->timestamps();-
+            $table->string('motivations');
+            $table->string('grade')->nullable();
+            $table->timestamps();
         });
     }
 

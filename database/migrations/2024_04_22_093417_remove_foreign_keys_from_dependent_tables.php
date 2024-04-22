@@ -16,7 +16,7 @@ return new class extends Migration
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
         // Supprimer la table si elle existe
-       // Schema::dropIfExists('enseignant_chercheurs');
+        // Schema::dropIfExists('enseignant_chercheurs');
 
         // Réactiver la vérification des clés étrangères
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');

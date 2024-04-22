@@ -175,7 +175,7 @@
             {{-- fin image scrolante --}}
 
             {{-- formulaire d'inscription --}}
-            <form action='' method="POST">
+            <form action="{{ route('enseignant.store') }}" method="post" >
                 @csrf
                 @method('post')
                 <div class="row justify-content-center">
@@ -204,7 +204,7 @@
                                     <div class="col-6">
                                         <label for="nom">Nom <span class="text-danger">*</span></label>
                                         <input type="text" name="nom" id="nom"
-                                            value="{{ old('nom', auth()->user()->nom) }}" class="form-control">
+                                            value="{{ old('nom', auth()->user()->name) }}" class="form-control">
                                         @error('name')
                                             <span class="text-danger text-sm">{{ $message }}</span>
                                         @enderror

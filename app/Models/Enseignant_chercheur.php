@@ -39,4 +39,4 @@ class Enseignant_chercheur extends Model
     {
         return $this->hasMany(Reservation::class, 'id_enseignant');
     }
-}
+};

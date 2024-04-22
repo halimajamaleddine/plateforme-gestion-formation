@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\EnseignantChercheurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,3 +95,5 @@ Route::get('/account-pages/rapports', function () {
 
 Route::put('/laravel-examples/user-profile/update', [ProfileController::class, 'update'])->name('users.update')->middleware('auth');
 Route::get('/account-pages/users-management', [UserController::class, 'index'])->name('users-management')->middleware('auth');
+
+Route::post('/store', [EnseignantChercheurController::class, 'store'])->name('enseignant.store')->middleware('auth');
