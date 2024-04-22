@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\enseignant_chercheur;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,10 +15,11 @@ class attestation extends Model
 
     protected $fillable = ['id_enseignant', 'contenu', 'date'];
 
-            protected $dates = ['date'];
+    protected $dates = ['date'];
 
     public function enseignant()
     {
-        return $this->belongsTo(Enseignant_Chercheus::class, 'id_enseignant');
+        return $this->belongsTo(enseignant_chercheur::class, 'id_enseignant');
     }
 }
+

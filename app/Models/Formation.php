@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use de;
-use App\Models\Formateur;
-use App\Models\formation;
+use et;
+use App\Models\rapport;
+use App\Models\formateur;
+use App\Models\session_de_formation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class formations extends Model
+class formation extends Model
 {
     use HasFactory;
     protected $table = 'formations';
@@ -21,11 +22,21 @@ class formations extends Model
 
     public function formateur()
     {
-        return $this->belongsTo(Formateur::class, 'id_formateur');
+        return $this->belongsTo(formateur::class, 'id_formateur');
     }
 
     public function sessionFormations()
     {
         return $this->hasMany(session_de_formation::class, 'id_formation');
+
+    }
+    public function feedback_et_evaluation()
+    {
+        return $this->hasMany('feedback_et_evaluation':: class,'id_FeedbackEval');
+    }
+
+    public function rapport()
+    {
+        return $this->hasMany('rapport'::class, 'id_rapport');
     }
 }

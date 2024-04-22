@@ -2,29 +2,31 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\reservation;
+use App\Models\formateur;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class session_de_formation extends Model
 {
     use HasFactory;
     protected $table = 'session_de_formation';
 
-        protected $primaryKey = 'id_sessionformation';
+    protected $primaryKey = 'id_sessionformation';
 
-        protected $fillable = ['datedebut', 'datefin', 'salle', 'id_formateur'];
+    protected $fillable = ['datedebut', 'datefin', 'salle', 'id_formateur'];
 
-        protected $dates = ['datedebut', 'datefin'];
-
-
-        public function formateur()
-        {
-            return $this->belongsTo(Formateur::class, 'id_formateur');
-        }
+    protected $dates = ['datedebut', 'datefin'];
 
 
-        public function reservations()
-        {
-            return $this->hasMany(reservations::class, 'id_sessionformation');
-        }
+    public function formateur()
+    {
+        return $this->belongsTo(formateur::class, 'id_formateur');
+    }
+
+
+    public function reservations()
+    {
+        return $this->hasMany(reservation::class, 'id_sessionformation');
+    }
 }

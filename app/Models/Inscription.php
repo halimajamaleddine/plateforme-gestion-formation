@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\Formateur;
+use App\Models\formateur;
+use App\Models\enseignant_chercheur;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -18,12 +19,12 @@ class inscription extends Model
 
     public function enseignantChercheur()
     {
-        return $this->belongsTo(Enseignant_Chercheurs::class, 'id_enseignant');
+        return $this->belongsTo(enseignant_Chercheur::class, 'id_enseignant');
     }
 
     public function formateur()
     {
-        return $this->belongsTo(Formateur::class, 'id_formateur');
+        return $this->belongsTo(formateur::class, 'id_formateur');
     }
 
 }

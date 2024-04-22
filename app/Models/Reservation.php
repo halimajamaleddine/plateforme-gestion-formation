@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use session;
+use App\Models\enseignant_chercheur;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -30,6 +31,6 @@ class reservations extends Model
 
     public function enseignantChercheur()
     {
-        return $this->belongsTo(Enseignant_chercheurs::class, 'id_enseignant');
+        return $this->belongsTo(enseignant_chercheur::class, 'id_enseignant');
     }
 }

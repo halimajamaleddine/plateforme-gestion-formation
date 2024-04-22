@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\enseignant_chercheur;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class feedback_et_evaluations extends Model
 {
@@ -20,6 +21,6 @@ class feedback_et_evaluations extends Model
 
     public function enseignantChercheur()
     {
-        return $this->belongsTo(Enseignant_Chercheurs::class, 'id_Enseignat');
+        return $this->belongsTo(enseignant_chercheur::class, 'id_enseignant');
     }
 }
