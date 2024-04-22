@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->increments('id_notification');
-            $table->foreign('id_enseignant')->constrained('enseignant_chercheurs');
+            $table->unsignedInteger('id_enseignant'); // Ajout de la colonne 'id_enseignant'
+            $table->foreign('id_enseignant')->references('id_enseignant')->on('enseignant_chercheurs');
             $table->string('contenu', 100);
             $table->timestamp('date')->useCurrent();
             $table->timestamps();

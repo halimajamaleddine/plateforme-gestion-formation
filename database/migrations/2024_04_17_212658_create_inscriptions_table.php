@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('inscriptions', function (Blueprint $table) {
             $table->increments('id_inscription');
-            $table->foreign('id_enseignant')->constained('enseignant_chercheurs');
-            $table->foreign('id_formateur')->constained('formateurs');
+            $table->unsignedInteger('id_enseignant');
+            $table->foreign('id_enseignant')->references('id_enseignant')->on('enseignant_chercheurs');
+            $table->unsignedBigInteger('id_formateur');
+            $table->foreign('id_formateur')->references('id_formateur')->on('formateurs');
             $table->timestamps();
         });
     }

@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('attestations', function (Blueprint $table) {
             $table->increments('id_attestation');
-            $table->foreign('id_enseignant')->constrained('enseignant_chercheurs');
+            $table->unsignedInteger('id_enseignant');
+            $table->foreign('id_enseignant')->references('id_enseignant')->on('enseignant_chercheurs');
             $table->string('contenu', 100);
             $table->date('date');
              $table->timestamps();

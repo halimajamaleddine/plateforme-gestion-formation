@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('enseignant_chercheurs', function (Blueprint $table) {
             $table->increments('id_enseignant');
+            $table->unsignedBigInteger('id_user'); // Ajout de la colonne 'id_user'
+            $table->foreign('id_user')->references('id_user')->on('users'); // Déclaration de la contrainte de clé étrangère
             $table->timestamps();
-            $table->foreign('id_user')->constrained('users');
             $table->string('etablissement')->nullable(false);
             $table->integer('anciennete')->nullable(false);
             $table->integer('grade')->nullable();
-
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */

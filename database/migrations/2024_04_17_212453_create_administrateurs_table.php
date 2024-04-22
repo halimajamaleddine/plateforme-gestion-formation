@@ -10,13 +10,15 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('administrateurs', function (Blueprint $table) {
-            $table->increments('id_administrateur');
-            $table->foreign('id_user')->constrained('users');
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('administrateurs', function (Blueprint $table) {
+        $table->id('id_administrateur');
+        $table->unsignedBigInteger('id_user'); // Ajout de la colonne 'id_user'
+        $table->foreign('id_user')->references('id_user')->on('users'); // Déclaration de la contrainte de clé étrangère
+        $table->timestamps();
+    });
+}
+
 
     /**
      * Reverse the migrations.

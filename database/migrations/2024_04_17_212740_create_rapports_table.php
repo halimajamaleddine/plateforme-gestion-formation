@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('rapports', function (Blueprint $table) {
             $table->increments('id_rapport');
-            $table->foreign('id_formation')->constrained('formations');
+            $table->unsignedBigInteger('id_formation');
+            $table->foreign('id_formation')->references('id_formation')->on('formations');
             $table->dateTime('date')->useCurrent();
             $table->integer('dure')->comment('Durée en jours');
             $table->string('contenu', 100);

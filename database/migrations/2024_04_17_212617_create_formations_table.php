@@ -17,11 +17,13 @@ return new class extends Migration
             $table->string('objectif', 100);
             $table->string('contenu', 100);
             $table->timestamp('date')->useCurrent();
-            $table->foreign('id_formateur')->constrained('formateurs');
+            $table->unsignedBigInteger('id_formateur');
+            $table->foreign('id_formateur')->references('id_formateur')->on('formateurs');
+            
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */

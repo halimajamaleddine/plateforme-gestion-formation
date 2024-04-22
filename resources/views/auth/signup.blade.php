@@ -66,6 +66,16 @@
                                                 <span class="text-danger text-sm">{{ $message }}</span>
                                             @enderror
                                         </div>
+                                        <label>Prenom</label>
+                                        <div class="mb-3">
+                                            <input type="text" id="prenom" name="prenom" class="form-control"
+                                                placeholder="Entre votre prenom" value="{{old("prenom")}}" aria-label="Prenom"
+                                                aria-describedby="name-addon">
+                                            @error('name')
+                                                <span class="text-danger text-sm">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
                                         <label>Email Address</label>
                                         <div class="mb-3">
                                             <input type="email" id="email" name="email" class="form-control"

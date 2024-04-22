@@ -13,8 +13,10 @@ return new class extends Migration {
 
         Schema::create('feedback_et_avaluations', function (Blueprint $table) {
             $table->increments('id_FeedbackEval');
-            $table->foreign('id_Enseignat')->constained('enseignant_chercheurs');
-            $table->foreign('id_formation')->constained('formations');
+            $table->unsignedInteger('id_enseignant'); // Ajout de la colonne 'id_enseignant'
+            $table->foreign('id_enseignant')->references('id_enseignant')->on('enseignant_chercheurs');
+            $table->unsignedBigInteger('id_formation');
+            $table->foreign('id_formation')->references('id_formation')->on('formations');
             $table->integer('rating');
             $table->text('comment')->nullable();
             $table->timestamp('date')->useCurrent();
