@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->increments('id_reservation');
-            $table->foreign('id_sessionformation')->constrained('session_de_formations');
-            $table->foreign('id_ressource')->constrained('ressources');
-            $table->foreign('id_enseignant')->constrained('enseignant_chercheurs');
+            $table->integer('id_sessionformation')->unsigned();
+            $table->foreign('id_sessionformation')->references('id_sessionformation')->on('session_de_formations');
+            $table->integer('id_ressource')->unsigned();
+            $table->foreign('id_ressource')->references('id_ressource')->on('ressources');
+            $table->integer('id_enseignant')->unsigned();
+            $table->foreign('id_enseignant')->references('id_enseignant')->on('enseignant_chercheurs');
             $table->timestamps();
         });
     }

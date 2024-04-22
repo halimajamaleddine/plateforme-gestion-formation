@@ -16,7 +16,8 @@ return new class extends Migration
             $table->date('datedebut');
             $table->date('datefin');
             $table->integer('salle');
-            $table->foreign('id_formateur')->constraines('formateurs');
+            $table->integer('id_formateur')->unsigned();
+            $table->foreign('id_formateur')->references('id_formateur')->on('formateurs');
             $table->timestamps();
         });
     }

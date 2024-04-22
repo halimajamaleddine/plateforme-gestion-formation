@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SessionDeFormation>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\administrateurs>
  */
-class SessionDeFormationFactory extends Factory
+class AdministrateursFactory extends Factory
 {
     /**
      * Define the model's default state.

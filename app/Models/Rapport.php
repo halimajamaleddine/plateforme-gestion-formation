@@ -2,25 +2,21 @@
 
 namespace App\Models;
 
-use App\Models\Formation;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Rapport extends Model
+class rapport extends Model
 {
     use HasFactory;
+    protected $table = 'rapports';
 
-        protected $table = 'rapports';
+    protected $fillable = ['id_formation', 'date', 'dure', 'contenu'];
 
-        protected $fillable = ['id_formation', 'date', 'dure', 'contenu'];
-
-        protected $dates = ['date'];
+    protected $dates = ['date'];
 
 
-        public function formation()
-        {
-            return $this->belongsTo(Formation::class, 'id_formation');
-        }
-
+    public function formation()
+    {
+        return $this->belongsTo(Formations::class, 'id_formation');
     }
-
+}

@@ -2,15 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\EnseignantChercheur;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Notification extends Model
+class notification extends Model
 {
     use HasFactory;
-
-        protected $table = 'notifications';
+    protected $table = 'notifications';
 
         protected $primaryKey = 'id_notification';
 
@@ -21,8 +19,6 @@ class Notification extends Model
 
         public function enseignantChercheur()
         {
-            return $this->belongsTo(EnseignantChercheur::class, 'id_enseignant');
+            return $this->belongsTo(Enseignant_Chercheurs::class, 'id_enseignant');
         }
-
-    }
-
+}

@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('attestations', function (Blueprint $table) {
             $table->increments('id_attestation');
-            $table->foreign('id_enseignant')->constrained('enseignant_chercheurs');
+            $table->integer('id_enseignant')->unsigned();
+            $table->foreign('id_enseignant')->references('id_enseignant')->on('enseignant_chercheurs');
             $table->string('contenu', 100);
             $table->date('date');
-             $table->timestamps();
+            $table->timestamps();
         });
     }
 

@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('objectif', 100);
             $table->string('contenu', 100);
             $table->timestamp('date')->useCurrent();
-            $table->foreign('id_formateur')->constrained('formateurs');
+            $table->integer('id_formateur')->unsigned();
+            $table->foreign('id_formateur')->references('id_formateur')->on('formateurs');
             $table->timestamps();
         });
     }

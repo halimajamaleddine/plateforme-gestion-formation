@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inscriptions', function (Blueprint $table) {
-            $table->increments('id_inscription');
-            $table->foreign('id_enseignant')->constained('enseignant_chercheurs');
-            $table->foreign('id_formateur')->constained('formateurs');
+        Schema::create('ressources', function (Blueprint $table) {
+            $table->increments('id_ressource');
+            $table->string('nom', 100);
+            $table->string('type', 100);
+            $table->boolean('disponibilite');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inscriptions');
+        Schema::dropIfExists('ressources');
     }
 };

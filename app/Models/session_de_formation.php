@@ -2,16 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\Formateur;
-use App\Models\Reservation;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class SessionDeFormation extends Model
+class session_de_formation extends Model
 {
     use HasFactory;
-
-        protected $table = 'session_de_formation';
+    protected $table = 'session_de_formation';
 
         protected $primaryKey = 'id_sessionformation';
 
@@ -28,9 +25,6 @@ class SessionDeFormation extends Model
 
         public function reservations()
         {
-            return $this->hasMany(Reservation::class, 'id_sessionformation');
+            return $this->hasMany(reservations::class, 'id_sessionformation');
         }
-
-    }
-
-
+}
