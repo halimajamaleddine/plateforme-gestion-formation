@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\EnseignantChercheur;
 use App\Http\Requests\StoreEnseignantChercheurRequest;
 use App\Http\Requests\UpdateEnseignantChercheurRequest;
@@ -11,7 +12,13 @@ class EnseignantChercheurController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function someEnseignantChercheurAction(Request $request) {
+        if (!$request->user()->isEnseignantChercheur()) {
+            abort(403, 'Unauthorized action.');
+        }
+        // Code for enseignant chercheur action
+    }
+     public function index()
     {
         //
     }

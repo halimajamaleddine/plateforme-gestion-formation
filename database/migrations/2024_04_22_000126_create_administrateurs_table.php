@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('administrateurs', function (Blueprint $table) {
             $table->increments('id_administrateur');
-            $table->integer('id_user')->unsigned();
+             $table->integer('id_user')->unsigned()->nullable();
             $table->foreign('id_user')->references('id_user')->on('users');
             $table->timestamps();
         });

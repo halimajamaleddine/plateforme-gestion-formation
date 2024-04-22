@@ -23,6 +23,16 @@ class User extends Authenticatable
         protected $primaryKey = 'id_user';
 
         protected $fillable = ['name', 'prenom', 'email', 'password', 'telephone', 'role'];
+    
+     
+        public function isAdmin() {
+            return $this->role === 'admin';
+        }
+        
+        public function isEnseignantChercheur() {
+            return $this->role === 'enseignant_chercheur';
+        }
+        
         public function administrateur()
     {
         return $this->hasOne(Administrateur::class,'id_administrateur');
