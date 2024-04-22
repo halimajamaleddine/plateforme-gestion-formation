@@ -5,7 +5,6 @@ namespace App\Models;
 use session;
 use App\Models\Enseignant_chercheur;
 use App\Models\Ressource;
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

@@ -31,8 +31,7 @@ class Formation extends Model
 
     }
     public function feedback_et_evaluation()
-    {
-        return $this->hasMany(Feedback_et_evaluation:: class,'id_FeedbackEval');
+    {        return $this->hasMany(Feedback_et_evaluation:: class,'id_FeedbackEval');
     }
 
     public function rapport()

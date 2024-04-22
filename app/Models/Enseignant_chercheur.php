@@ -3,9 +3,9 @@
 namespace App\Models;
 
 
-use App\Models\Reservation;
-use App\Models\Attestation;
-use App\Models\Feedback_et_evaluation;
+use App\Models\reservation;
+use App\Models\attestation;
+use App\Models\feedback_et_evaluation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
