@@ -17,14 +17,11 @@ return new class extends Migration
             $table->foreign('id_user')->references('id_user')->on('users');
             $table->string('etablissement')->nullable(false);
             $table->integer('anciennete')->nullable(false);
-<<<<<<< HEAD
             $table->integer('grade')->nullable();
             $table->timestamps();-
-=======
             $table->string('motivations');
             $table->string('grade')->nullable();
             $table->timestamps();
->>>>>>> c9ebe0355eb81d322e7137d401b2ef9526f7b648
         });
     }
 
