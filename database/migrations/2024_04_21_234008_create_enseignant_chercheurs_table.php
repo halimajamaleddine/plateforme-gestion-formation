@@ -17,7 +17,8 @@ return new class extends Migration
             $table->foreign('id_user')->references('id_user')->on('users');
             $table->string('etablissement')->nullable(false);
             $table->integer('anciennete')->nullable(false);
-            $table->integer('grade')->nullable();
+            $table->string('motivations');
+            $table->string('grade')->nullable();
             $table->timestamps();
         });
     }

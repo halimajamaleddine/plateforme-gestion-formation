@@ -9,7 +9,7 @@ use App\Models\session_de_formation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class formation extends Model
+class Formation extends Model
 {
     use HasFactory;
     protected $table = 'formations';
@@ -32,11 +32,11 @@ class formation extends Model
     }
     public function feedback_et_evaluation()
     {
-        return $this->hasMany('feedback_et_evaluation':: class,'id_FeedbackEval');
+        return $this->hasMany(feedback_et_evaluation::class,'id_FeedbackEval');
     }
 
     public function rapport()
     {
-        return $this->hasMany('rapport'::class, 'id_rapport');
+        return $this->hasMany(rapport::class, 'id_rapport');
     }
 }

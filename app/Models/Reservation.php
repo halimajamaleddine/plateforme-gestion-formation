@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use session;
+use App\Models\Ressource;
 use App\Models\enseignant_chercheur;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class reservations extends Model
+class Reservation extends Model
 {
     use HasFactory;
     protected $table = 'reservations';
@@ -25,7 +26,7 @@ class reservations extends Model
 
     public function ressource()
     {
-        return $this->belongsTo(Ressources::class, 'id_ressource');
+        return $this->belongsTo(Ressource::class, 'id_ressource');
     }
 
 

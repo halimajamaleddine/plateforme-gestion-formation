@@ -6,7 +6,7 @@ use App\Models\formation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class rapport extends Model
+class Rapport extends Model
 {
     use HasFactory;
     protected $table = 'rapports';

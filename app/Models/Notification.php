@@ -5,7 +5,7 @@ use App\Models\enseignant_chercheur;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class notification extends Model
+class Notification extends Model
 {
     use HasFactory;
     protected $table = 'notifications';

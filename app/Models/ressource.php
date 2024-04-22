@@ -5,7 +5,7 @@ use App\Models\reservation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ressources extends Model
+class Ressource extends Model
 {
     use HasFactory;
 
@@ -17,6 +17,6 @@ class Ressources extends Model
 
     public function reservations()
     {
-        return $this->hasMany(reservation::class, 'id_ressource');
+        return $this->hasMany(Reservation::class, 'id_ressource');
     }
 }

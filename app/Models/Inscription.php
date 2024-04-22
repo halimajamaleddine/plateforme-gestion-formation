@@ -7,7 +7,7 @@ use App\Models\enseignant_chercheur;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class inscription extends Model
+class Inscription extends Model
 {
     use HasFactory;
     protected $table = 'inscriptions';
@@ -19,7 +19,7 @@ class inscription extends Model
 
     public function enseignantChercheur()
     {
-        return $this->belongsTo(enseignant_Chercheur::class, 'id_enseignant');
+        return $this->belongsTo(enseignant_chercheur::class, 'id_enseignant');
     }
 
     public function formateur()

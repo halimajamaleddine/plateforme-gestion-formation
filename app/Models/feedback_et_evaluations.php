@@ -6,7 +6,7 @@ use App\Models\enseignant_chercheur;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class feedback_et_evaluations extends Model
+class Feedback_et_evaluation extends Model
 {
     use HasFactory;
     protected $table = 'feedback_et_evaluations';

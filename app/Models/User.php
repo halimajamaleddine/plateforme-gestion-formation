@@ -25,7 +25,7 @@ class User extends Authenticatable
         protected $fillable = ['name', 'prenom', 'email', 'password', 'telephone', 'role'];
         public function administrateur()
     {
-        return $this->hasOne(administrateur::class);
+        return $this->hasOne(administrateur::class,'id_administrateur');
     }
     public function enseignant_chercheur()
     {

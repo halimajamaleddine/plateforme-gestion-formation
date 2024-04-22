@@ -7,7 +7,7 @@ use App\Models\formateur;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class session_de_formation extends Model
+class Session_de_formation extends Model
 {
     use HasFactory;
     protected $table = 'session_de_formation';

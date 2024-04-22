@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class administrateurs extends Model
+class Administrateur extends Model
 {
     use HasFactory;
     protected $table = 'administrateurs';

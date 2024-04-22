@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\enseignant_chercheur;
+use App\Models\Enseignant_chercheur;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class attestation extends Model
+class Attestation extends Model
 {
     use HasFactory;
     protected $table = 'attestations';
@@ -19,7 +19,7 @@ class attestation extends Model
 
     public function enseignant()
     {
-        return $this->belongsTo(enseignant_chercheur::class, 'id_enseignant');
+        return $this->belongsTo(Enseignant_chercheur::class, 'id_enseignant');
     }
 }
 

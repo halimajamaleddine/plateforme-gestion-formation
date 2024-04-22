@@ -8,7 +8,7 @@ use App\Models\session_de_formation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class formateur extends Model
+class Formateur extends Model
 
 {
     use HasFactory;
