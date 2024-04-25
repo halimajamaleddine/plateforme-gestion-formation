@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,13 +85,9 @@ Route::get('/reset-password/{token}', [ResetPasswordController::class, 'create']
 Route::post('/reset-password', [ResetPasswordController::class, 'store'])
     ->middleware('guest');
 
-Route::get('/laravel-examples/user-profile', [ProfileController::class, 'index'])->name('users.profile')->middleware('auth');
 Route::get('/laravel-examples/session-formation', function () {
     return view('laravel-examples.session-formation');
 })->name('session.formation')->middleware('auth');
-Route::get('/account-pages/rapports', function () {
-    return view('account-pages.rapports');
-})->name('rapports')->middleware('auth');
 
 Route::put('/laravel-examples/user-profile/update', [ProfileController::class, 'update'])->name('users.update')->middleware('auth');
 Route::get('/account-pages/users-management', [UserController::class, 'index'])->name('users-management')->middleware('auth');

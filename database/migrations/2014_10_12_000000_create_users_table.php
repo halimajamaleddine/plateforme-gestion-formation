@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('telephone')->nullable();
             $table->string('role', 50)->default('enseignant');
             $table->string('etablissement', 50);
+            $table->string('motivations', 50)->nullable();
             $table->integer('anciennete')->nullable();
             $table->integer('grade')->nullable();
             $table->boolean('in_formation')->default(false);

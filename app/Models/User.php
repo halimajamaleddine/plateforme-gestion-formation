@@ -25,6 +25,7 @@ class User extends Authenticatable
         'telephone',
         'role',
         'etablissement',
+        'motivations',
         'anciennete',
         'grade',
         'in_formation'
