@@ -2,40 +2,23 @@
 
 namespace App\Models;
 
-use et;
-use App\Models\Rapport;
-use App\Models\Formateur;
-use App\Models\Session_de_formation;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Formation extends Model
 {
     use HasFactory;
-    protected $table = 'formations';
+    protected $fillable = ['titre', 'objectif', 'contenu', 'date', 'formateur_id', 'ressource'];
 
-    protected $primaryKey = 'id_formation';
-
-    protected $fillable = ['titre', 'objectif', 'contenu', 'date', 'id_formateur', 'ressource'];
-
-    protected $dates = ['date'];
-
+    // Relation avec formateur
     public function formateur()
     {
-        return $this->belongsTo(Formateur::class, 'id_formateur');
+        return $this->hasMany(Formateur::class);
     }
 
-    public function sessionFormations()
+    // Relation avec feedback_evaluations
+    public function feedbackEvaluations()
     {
-        return $this->hasMany(Session_de_formation::class, 'id_formation');
-
-    }
-    public function feedback_et_evaluation()
-    {        return $this->hasMany(Feedback_et_evaluation:: class,'id_FeedbackEval');
-    }
-
-    public function rapport()
-    {
-        return $this->hasMany(Rapport::class, 'id_rapport');
+        return $this->hasMany(FeedbackEvaluation::class);
     }
 }

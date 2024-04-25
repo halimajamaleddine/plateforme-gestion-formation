@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('session_de_formations', function (Blueprint $table) {
-            $table->increments('id_sessionformation');
+        Schema::create('sessions', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom_ressource',50);
+            $table->string('type_ressource',50);
+            $table->boolean('disponibilite_ressource');
             $table->date('datedebut');
             $table->date('datefin');
             $table->integer('salle');
-            $table->integer('id_formateur')->unsigned();
-            $table->foreign('id_formateur')->references('id_formateur')->on('formateurs');
+            $table->foreignId('formateur_id')->constrained();
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('session_de_formations');
+        Schema::dropIfExists('sessions');
     }
 };

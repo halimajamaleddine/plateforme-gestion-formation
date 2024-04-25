@@ -2,29 +2,26 @@
 
 namespace App\Models;
 
-use App\Models\Formateur;
-use App\Models\Enseignant_chercheur;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Inscription extends Model
 {
     use HasFactory;
-    protected $table = 'inscriptions';
+    protected $fillable = ['user_id', 'formateur_id'];
 
-    protected $primaryKey = 'id_inscription';
-
-    protected $fillable = ['id_enseignant', 'id_formateur'];
-
-
-    public function enseignantChercheur()
+    // Relations
+    public function user()
     {
-        return $this->belongsTo(Enseignant_chercheur::class, 'id_enseignant');
+        return $this->hasMany(User::class);
+    }
+    public function formation()
+    {
+        return $this->hasOne(Formation::class);
     }
 
     public function formateur()
     {
-        return $this->belongsTo(Formateur::class, 'id_formateur');
+        return $this->hasOne(Formateur::class);
     }
-
 }

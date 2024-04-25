@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Administrateur;
 use App\Http\Requests\StoreAdministrateurRequest;
 use App\Http\Requests\UpdateAdministrateurRequest;
@@ -11,7 +12,14 @@ class AdministrateurController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function someAdminAction(Request $request) {
+        if (!$request->user()->isAdmin()) {
+            abort(403, 'Unauthorized action.');
+        }
+        // Code for admin action
+    }
+
+     public function index()
     {
         //
     }

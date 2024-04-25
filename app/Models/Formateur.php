@@ -2,29 +2,27 @@
 
 namespace App\Models;
 
-
+use App\Models\Session;
 use App\Models\Formation;
-use App\Models\Session_de_formation;
+use App\Models\Inscription;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Formateur extends Model
-
 {
     use HasFactory;
-    protected $table = 'formateurs';
-
-    protected $primaryKey = 'id_formateur';
-
     protected $fillable = ['nom', 'prenom', 'statue'];
 
 
-    public function sessionFormations()
+    public function formations()
     {
-        return $this->hasMany(Session_de_formation::class, 'id_formateur');
+        return $this->hasMany(Formation::class);
     }
-    public function formation()
+
+    public function sessions()
     {
-        return $this->hasMany(Formation::class, 'id_formation');
+        return $this->hasMany(Session::class);
     }
+
+
 }

@@ -12,13 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('formations', function (Blueprint $table) {
-            $table->increments('id_formation');
+
+            $table->id();
             $table->string('titre', 100);
             $table->string('objectif', 100);
             $table->string('contenu', 100);
             $table->timestamp('date')->useCurrent();
-            $table->integer('id_formateur')->unsigned();
-            $table->foreign('id_formateur')->references('id_formateur')->on('formateurs');
+            $table->foreignId('formateur_id')->constrained();
+            $table->string('ressource', 100)->nullable();
             $table->timestamps();
         });
     }

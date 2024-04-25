@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('administrateurs', function (Blueprint $table) {
-            $table->increments('id_administrateur');
-            $table->integer('id_user')->unsigned();
-            $table->foreign('id_user')->references('id_user')->on('users');
+        Schema::create('formateurs', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom', 50);
+            $table->string('prenom', 50);
+            $table->string('statue', 50);
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('administrateurs');
+        Schema::dropIfExists('formateurs');
     }
 };

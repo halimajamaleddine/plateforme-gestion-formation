@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('formateurs', function (Blueprint $table) {
-            $table->increments('id_formateur');
-            $table->string('nom', 100);
-            $table->string('prenom', 100);
-            $table->string('statue', 100);
+        Schema::create('notifications', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained ();
+            $table->string('contenu', 100);
+            $table->timestamp('date')->useCurrent();
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('formateurs');
+        Schema::dropIfExists('notifications');
     }
 };

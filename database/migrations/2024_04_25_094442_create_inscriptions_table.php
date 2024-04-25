@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ressources', function (Blueprint $table) {
-            $table->increments('id_ressource');
-            $table->string('nom', 100);
-            $table->string('type', 100);
-            $table->boolean('disponibilite');
+        Schema::create('inscriptions', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')-> constrained ();
+            $table->foreignId('formateur_id')-> constrained ();
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ressources');
+        Schema::dropIfExists('inscriptions');
     }
 };
