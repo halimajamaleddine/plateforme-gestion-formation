@@ -156,7 +156,7 @@
             {{-- fin image scrolante --}}
 
             {{-- formulaire d'inscription --}}
-            <form action='' method="POST">
+            <form action="{{ route('inscription.store') }}"  method="POST">
                 @csrf
                 @method('post')
                 <div class="row justify-content-center">
@@ -223,15 +223,15 @@
                                         @enderror
                                     </div>
                                     <div class="col-6">
-                                        <label for="ancienneté">Ancienneté dans l'enseignement <span class="text-danger">*</span></label>
-                                        <select name="ancienneté" id="ancienneté"
-                                            value="ancienneté" class="form-control">
+                                        <label for="anciennete">Ancienneté dans l'enseignement <span class="text-danger">*</span></label>
+                                        <select name="anciennete" id="anciennete"
+                                            value="anciennete" class="form-control">
                                             <option value="1-4">1-4 ans </option>
                                             <option value="5-12">5-12 ans</option>
                                             <option value="+12">+12 ans</option>
 
                                         </select>
-                                        @error('ancienneté')
+                                        @error('anciennete')
                                             <span class="text-danger text-sm">{{ $message }}</span>
                                         @enderror
                                     </div>

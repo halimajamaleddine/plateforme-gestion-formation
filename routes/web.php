@@ -90,4 +90,6 @@ Route::get('/laravel-examples/session-formation', function () {
 })->name('session.formation')->middleware('auth');
 
 Route::put('/laravel-examples/user-profile/update', [ProfileController::class, 'update'])->name('users.update')->middleware('auth');
+Route::get('/laravel-examples/user-profile', [ProfileController::class, 'index'])->name('users.profile')->middleware('auth');
 Route::get('/account-pages/users-management', [UserController::class, 'index'])->name('users-management')->middleware('auth');
+Route::post('/inscription', [UserController::class, 'store'])->name('inscription.store');
