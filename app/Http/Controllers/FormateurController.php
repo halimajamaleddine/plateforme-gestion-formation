@@ -14,10 +14,7 @@ class FormateurController extends Controller
     public function index()
     {
         $formateurs = Formateur::all();
-        return view('account-pages.formateur-management', compact('formateurs'));
-
-        
-
+        return view('tables', compact('formateurs'));
     }
 
     /**

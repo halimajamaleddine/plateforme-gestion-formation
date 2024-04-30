@@ -29,9 +29,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard')->middleware('auth');
 
-Route::get('/tables', function () {
-    return view('tables');
-})->name('tables')->middleware('auth');
+// Route::get('/tables', function () {
+//     return view('tables');
+// })->name('tables')->middleware('auth');
 
 // Route::get('/wallet', function () {
 //     return view('wallet');
@@ -105,6 +105,7 @@ Route::put('/formateurs/{formateur}', [FormateurController::class, 'update'])->n
 Route::delete('/formateurs/{formateur}', [FormateurController::class, 'destroy'])->name('formateurs.destroy')->middleware('auth');;
 Route::put('/formateurs/{id}', 'FormateurController@update')->name('formateurs.update');
 
+Route::get('/tables', [FormateurController::class, 'index'])->name('tables')->middleware('auth');
 
 
 
