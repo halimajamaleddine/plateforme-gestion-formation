@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('telephone')->nullable();
             $table->string('role', 50)->default('enseignant');
-            $table->string('etablissement', 50);
+            $table->string('etablissement', 50)->nullable();
             $table->string('motivations', 50)->nullable();
             $table->string('anciennete')->nullable();
             $table->string('grade')->nullable();

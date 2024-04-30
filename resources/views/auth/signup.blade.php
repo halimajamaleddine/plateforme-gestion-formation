@@ -55,21 +55,32 @@
                                     <p class="mb-0">Nice to meet you! Please enter your details.</p>
                                 </div>
                                 <div class="card-body">
-                                    <form role="form" method="POST" action="sign-up">
+                                    <form action="{{ route('inscription.store') }}"  method="POST">
                                         @csrf
-                                        <label>Name</label>
+                                        @method('post')
+                                        <label>Nom</label>
                                         <div class="mb-3">
-                                            <input type="text" id="name" name="name" class="form-control"
-                                                placeholder="Enter your name" value="{{old("name")}}" aria-label="Name"
+                                            <input type="text" id="nom" name="nom" class="form-control"
+                                                placeholder="Entre votre nom" value="{{old("nom")}}" aria-label="Nom"
                                                 aria-describedby="name-addon">
-                                            @error('name')
+                                            @error('nom')
                                                 <span class="text-danger text-sm">{{ $message }}</span>
                                             @enderror
                                         </div>
+                                        <label>Prenom</label>
+                                        <div class="mb-3">
+                                            <input type="text" id="prenom" name="prenom" class="form-control"
+                                                placeholder="Entre votre prenom" value="{{old("prenom")}}" aria-label="Prenom"
+                                                aria-describedby="name-addon">
+                                            @error('prenom')
+                                                <span class="text-danger text-sm">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        
                                         <label>Email Address</label>
                                         <div class="mb-3">
                                             <input type="email" id="email" name="email" class="form-control"
-                                                placeholder="Enter your email address" value="{{old("email")}}" aria-label="Email"
+                                                placeholder="Entre votre address email " value="{{old("email")}}" aria-label="Email"
                                                 aria-describedby="email-addon">
                                             @error('email')
                                                 <span class="text-danger text-sm">{{ $message }}</span>

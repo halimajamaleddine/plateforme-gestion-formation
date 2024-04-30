@@ -104,6 +104,12 @@
                     <span class="nav-link-text ms-1">User Management</span>
                 </a>
             </li>
+            <li class="nav-item border-start my-0 pt-2">
+                <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('formateurs-management') ? 'active' : '' }}"
+                    href="{{ route('formateurs-management') }}">
+                    <span class="nav-link-text ms-1">Formateur Management</span>
+                </a>
+            </li>
 
             <li class="nav-item border-start my-0 pt-2">
                 <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('profile') ? 'active' : '' }}"

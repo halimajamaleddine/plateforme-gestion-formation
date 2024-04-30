@@ -1,4 +1,5 @@
 <x-app-layout>
+    <link rel="stylesheet" href="resources/css/style.css">
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <x-app.navbar />
         <div class="px-5 py-4 container-fluid">
@@ -48,9 +49,6 @@
                                             ID</th>
                                         <th
                                             class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Photo</th>
-                                        <th
-                                            class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
                                             Name</th>
                                         <th
                                             class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
@@ -63,98 +61,48 @@
                                             Creation Date</th>
                                         <th
                                             class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
+                                            statue</th>
+                                        <th
+                                            class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
                                             Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="align-middle bg-transparent border-bottom">1</td>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <img src="../assets/img/team-1.jpg" class="rounded-circle mr-2"
-                                                    alt="user1" style="height: 36px; width: 36px;">
-                                            </div>
-                                        </td>
-                                        <td class="align-middle bg-transparent border-bottom">Admin</td>
-                                        <td class="align-middle bg-transparent border-bottom">admin@softui.com</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">Admin</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">16/08/18</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">
-                                            <a href="#"><i class="fas fa-user-edit" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fas fa-trash" aria-hidden="true"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle bg-transparent border-bottom">2</td>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <img src="../assets/img/team-2.jpg" class="rounded-circle mr-2"
-                                                    alt="user2" style="height: 36px; width: 36px;">
-                                            </div>
-                                        </td>
-                                        <td class="align-middle bg-transparent border-bottom">Creator</td>
-                                        <td class="align-middle bg-transparent border-bottom">creator@softui.com</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">Creator</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">05/05/20</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">
-                                            <a href="#"><i class="fas fa-user-edit" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fas fa-trash" aria-hidden="true"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle bg-transparent border-bottom">3</td>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <img src="../assets/img/team-3.jpg" class="rounded-circle mr-2"
-                                                    alt="user3" style="height: 36px; width: 36px;">
-                                            </div>
-                                        </td>
-                                        <td class="align-middle bg-transparent border-bottom">Member</td>
-                                        <td class="align-middle bg-transparent border-bottom">member@softui.com</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">Member</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">05/05/20</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">
-                                            <a href="#"><i class="fas fa-user-edit" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fas fa-trash" aria-hidden="true"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle bg-transparent border-bottom">4</td>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <img src="../assets/img/team-4.jpg" class="rounded-circle mr-2"
-                                                    alt="user4" style="height: 36px; width: 36px;">
-                                            </div>
-                                        </td>
-                                        <td class="align-middle bg-transparent border-bottom">Peterson</td>
-                                        <td class="align-middle bg-transparent border-bottom">peterson@corporateui.com
-                                        </td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">Member</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">05/05/20</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">
-                                            <a href="#"><i class="fas fa-user-edit" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fas fa-trash" aria-hidden="true"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle bg-transparent border-bottom">5</td>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <img src="../assets/img/marie.jpg" class="rounded-circle mr-2"
-                                                    alt="user5" style="height: 36px; width: 36px;">
-                                            </div>
-                                        </td>
-                                        <td class="align-middle bg-transparent border-bottom">Marie</td>
-                                        <td class="align-middle bg-transparent border-bottom">marie@corporateui.com
-                                        </td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">Creator</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">05/05/20</td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">
-                                            <a href="#"><i class="fas fa-user-edit" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fas fa-trash" aria-hidden="true"></i></a>
-                                        </td>
-                                    </tr>
+                                    @foreach ($users as $user)
+                                        <tr>
+                                            <td class="align-middle bg-transparent border-bottom">{{ $user->id }}
+                                            </td>
+                                            <td class="align-middle bg-transparent border-bottom">{{ $user->nom }}
+                                            </td>
+                                            <td class="align-middle bg-transparent border-bottom">{{ $user->email }}
+                                            </td>
+                                            <td class="text-center align-middle bg-transparent border-bottom">
+                                                {{ $user->role }}</td>
+                                            <td class="text-center align-middle bg-transparent border-bottom">16/08/18
+                                            </td>
 
+                                            <td class="text-center align-middle bg-transparent border-bottom">
+                                                <form action="{{ route('inscription.acceptInFormation', $user->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('put')
+                                                    <input type="hidden" name="userid" value={{ $user->id }}>
+                                                    <button class="btn bg-success text-white" name="in_formation"
+                                                        value="accepter" onclick="this.form.submit()"
+                                                        @if ($user->in_formation) disabled @endif>Accepte</button>
+                                                    <button class="btn bg-danger text-white" name="in_formation"
+                                                        value="refuser" onclick="this.form.submit()"
+                                                        @if ($user->in_formation === false) disabled @endif>Refuser</button>
+                                                </form>
+                                            </td>
+
+                                            <td class="text-center align-middle bg-transparent border-bottom">
+                                                <a href="#"><i class="fas fa-user-edit"
+                                                        aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fas fa-trash" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
 
@@ -178,4 +126,104 @@
             sortable: false
         }]
     });
+
+    const check = document.getElementById('Fcheck');
+    const btn = document.getElementById('btn');
+    const message = document.getElementById('message');
+
+    btn.addEventListener('click', function() {
+        btn.classList.add('hide');
+        check.classList.add('rotateIn');
+        message.classlist.add('fadein');
+    });
 </script>
+<style>
+    .btn-a {
+        padding: 10px 20px;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .btn-a:hover {
+        background: #0056b3;
+    }
+
+    .check {
+        position: absolute;
+        opacity: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #0lad0a;
+        color: #fff;
+        font-size: 30px;
+        border: 1px solid #049117;
+    }
+
+    .message {
+        opacity: 0;
+        font-size: 1.5rem;
+    }
+
+    .row {
+        transform: translateY(-25px);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .rotateIn {
+        animation: rotateIn 0.5s forwards;
+    }
+
+    .fadeIn {
+        animation: fadeIn 1.3s 0.5s forwards;
+    }
+
+    @keyframes rotateIn {
+        0% {
+            opacity: 0;
+            scale: 0.5;
+            transform: rotate(edeg);
+            filter: blur(5px);
+        }
+
+        50% {
+            pacity: 1;
+            scale: 1.2;
+        }
+
+        90% {
+            opacity: 1;
+            scale: 1;
+            transform: rotate(360deg);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translatex(-60px);
+        }
+    }
+
+    keyframes fadeIn % {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+</style>

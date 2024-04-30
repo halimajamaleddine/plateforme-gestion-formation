@@ -7,7 +7,7 @@
                 <div class="col-md-12">
                     <div class="d-md-flex align-items-center mb-3 mx-2">
                         <div class="mb-md-0 mb-3">
-                            <h3 class="font-weight-bold mb-0">Bienvenue, {{ auth()->user()->name }}</h3>
+                            <h3 class="font-weight-bold mb-0">Bienvenue, {{ auth()->user()->nom }}{{' '}} {{ auth()->user()->prenom }}</h3>
 
                         </div>
                     </div>
@@ -156,9 +156,9 @@
             {{-- fin image scrolante --}}
 
             {{-- formulaire d'inscription --}}
-            <form action="{{ route('inscription.store') }}"  method="POST">
+            <form action="{{ route('inscription.update') }}" method="POST">
                 @csrf
-                @method('post')
+                @method('put')
                 <div class="row justify-content-center">
                     <div class="col-lg-9 col-12">
                         @if (session('error'))
@@ -181,24 +181,6 @@
                             </div>
                             <div class="pt-0 card-body">
 
-                                <div class="row">
-                                    <div class="col-6">
-                                        <label for="nom">Nom <span class="text-danger">*</span></label>
-                                        <input type="text" name="nom" id="nom"
-                                            value="{{ old('nom', auth()->user()->name) }}" class="form-control">
-                                        @error('name')
-                                            <span class="text-danger text-sm">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="prenom">Prénom <span class="text-danger">*</span></label>
-                                        <input type="text" name="prenom" id="prenom"
-                                            value="{{ old('prenom', auth()->user()->prenom) }}" class="form-control">
-                                        @error('name')
-                                            <span class="text-danger text-sm">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <div class="col-6">
                                         <label for="etablissement">Etablissement <span class="text-danger">*</span></label>
@@ -238,16 +220,6 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-6">
-                                        <label for="email">Email <span class="text-danger">*</span></label>
-                                        <input type="email" name="email" id="email"
-                                            value="{{ old('email', auth()->user()->email) }}"
-                                            class="form-control">
-                                        @error('email')
-                                            <span class="text-danger text-sm">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
                                     <div class="col-6">
                                         <label for="telephone">Telephone  <span class="text-danger">*</span></label>
                                         <input type="text" name="telephone" id="telephone" placeholder="+212"

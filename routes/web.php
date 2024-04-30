@@ -1,13 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FormateurController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,4 +93,22 @@ Route::get('/laravel-examples/session-formation', function () {
 Route::put('/laravel-examples/user-profile/update', [ProfileController::class, 'update'])->name('users.update')->middleware('auth');
 Route::get('/laravel-examples/user-profile', [ProfileController::class, 'index'])->name('users.profile')->middleware('auth');
 Route::get('/account-pages/users-management', [UserController::class, 'index'])->name('users-management')->middleware('auth');
-Route::post('/inscription', [UserController::class, 'store'])->name('inscription.store');
+Route::put('/inscription', [UserController::class, 'update'])->name('inscription.update');
+Route::put('/updateinformation', [UserController::class, 'acceptInFormation'])->name('inscription.acceptInFormation');
+
+Route::get('/account-pages/formation-management', [FormateurController::class, 'index'])->name('formateurs-management')->middleware('auth');
+
+Route::post('/account-pages/formateur-add', [FormateurController::class, 'store'])->name('Ajouter.formateur')->middleware('auth');
+
+Route::get('/formateurs/{formateur}/edit', [FormateurController::class, 'edit'])->name('formateurs.edit');
+Route::put('/formateurs/{formateur}', [FormateurController::class, 'update'])->name('formateurs.update')->middleware('auth');
+Route::delete('/formateurs/{formateur}', [FormateurController::class, 'destroy'])->name('formateurs.destroy')->middleware('auth');;
+Route::put('/formateurs/{id}', 'FormateurController@update')->name('formateurs.update');
+
+
+
+
+
+
+
+

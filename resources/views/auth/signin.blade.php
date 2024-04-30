@@ -22,8 +22,7 @@
                                     <p class="mb-0">Welcome back!</p>
                                     <p class="mb-0">créer un nouveau compte<br></p>
                                     <p class="mb-0">ou connectez-vous </p>
-                                    {{-- <p class="mb-0">Email: <b>admin@corporateui.com</b></p>
-                                    <p class="mb-0">Password: <b>secret</b></p> --}}
+                                    
                                 </div>
                                 <div class="text-center">
                                     @if (session('status'))
@@ -44,7 +43,7 @@
                                         <div class="mb-3">
                                             <input type="email" id="email" name="email" class="form-control"
                                                 placeholder="Enter your email address"
-                                                value="{{ old('email') ? old('email') : 'admin@corporateui.com' }}"
+                                                value="{{ old('email') ? old('email') : 'halima.admin@gmail.com' }}"
                                                 aria-label="Email" aria-describedby="email-addon">
                                         </div>
                                         <label>mot de passe
@@ -67,14 +66,7 @@
                                         </div>
                                         <div class="text-center">
                                             <button type="submit"
-                                                class="btn btn-dark w-100 mt-4 mb-3">s'inscrire</button>
-                                            <button type="button" class="btn btn-white btn-icon w-100 mb-3">
-                                                <span class="btn-inner--icon me-1">
-                                                    <img class="w-5" src="../assets/img/logos/google-logo.svg"
-                                                        alt="google-logo" />
-                                                </span>
-                                                <span class="btn-inner--text">Se connecter avec google</span>
-                                            </button>
+                                                class="btn btn-dark w-100 mt-4 mb-3">se connecter</button>
                                         </div>
                                     </form>
                                 </div>

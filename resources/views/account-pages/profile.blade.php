@@ -16,7 +16,7 @@
                     <div class="col-auto my-auto">
                         <div class="h-100">
                             <h3 class="mb-0 font-weight-bold">
-                                {{ auth()->user()->name }}
+                                {{ auth()->user()->nom }} {{ auth()->user()->prenom }}
                             </h3>
                             <p class="mb-0">
                                 {{ auth()->user()->email }}
@@ -93,105 +93,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-xl-4 mb-4">
-                    <div class="card border shadow-xs h-100">
-                        <div class="card-header pb-0 p-3">
-                            <div class="row mb-sm-0 mb-2">
-                                <div class="col-md-8 col-9">
-                                    <h6 class="mb-0 font-weight-semibold text-lg">Internal chat</h6>
-                                    <p class="text-sm mb-0">/marketing channel</p>
-                                </div>
-                                <div class="col-md-4 col-3 text-end">
-                                    <button type="button" class="btn btn-white btn-icon px-2 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-                                            viewBox="0 0 24 24" fill="currentColor">
-                                            <path fill-rule="evenodd"
-                                                d="M10.5 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body p-3 pt-0">
-                            <ul class="list-group">
-                                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-1">
-                                    <div class="avatar avatar-sm rounded-circle me-2">
-                                        <img src="../assets/img/team-1.jpg" alt="kal" class="w-100">
-                                    </div>
-                                    <div class="d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm font-weight-semibold">Sarah Lamalo</h6>
-                                        <p class="mb-0 text-sm text-secondary">Hi! I need more information about ...
-                                        </p>
-                                    </div>
-                                    <span class="p-1 bg-success rounded-circle ms-auto me-3">
-                                        <span class="visually-hidden">Online</span>
-                                    </span>
-                                </li>
-                                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-1">
-                                    <div class="avatar avatar-sm rounded-circle me-2">
-                                        <img src="../assets/img/marie.jpg" alt="kal" class="w-100">
-                                    </div>
-                                    <div class="d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm font-weight-semibold">Vicky Hladynets</h6>
-                                        <p class="mb-0 text-sm text-secondary">Hello, Noah!</p>
-                                    </div>
-                                    <span class="p-1 bg-success rounded-circle ms-auto me-3">
-                                        <span class="visually-hidden">Online</span>
-                                    </span>
-                                </li>
-                                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-1">
-                                    <div class="avatar avatar-sm rounded-circle me-2">
-                                        <img src="../assets/img/team-5.jpg" alt="kal" class="w-100">
-                                    </div>
-                                    <div class="d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm font-weight-semibold">Charles Deluvio</h6>
-                                        <p class="mb-0 text-sm text-secondary">Great, thank you!</p>
-                                    </div>
-                                    <span class="p-1 bg-success rounded-circle ms-auto me-3">
-                                        <span class="visually-hidden">Online</span>
-                                    </span>
-                                </li>
-                                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-1">
-                                    <div class="avatar avatar-sm rounded-circle me-2">
-                                        <img src="../assets/img/team-4.jpg" alt="kal" class="w-100">
-                                    </div>
-                                    <div class="d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm font-weight-semibold">Leio Mclaren</h6>
-                                        <p class="mb-0 text-sm text-secondary">Don't worry! 🙏🏻</p>
-                                    </div>
-                                    <span class="p-1 bg-success rounded-circle ms-auto me-3">
-                                        <span class="visually-hidden">Online</span>
-                                    </span>
-                                </li>
-                                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-1">
-                                    <div class="avatar avatar-sm rounded-circle me-2">
-                                        <img src="../assets/img/team-3.jpg" alt="kal" class="w-100">
-                                    </div>
-                                    <div class="d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm font-weight-semibold">Mateus Campos</h6>
-                                        <p class="mb-0 text-sm text-secondary">Call me, please.</p>
-                                    </div>
-                                    <span class="p-1 bg-success rounded-circle ms-auto me-3">
-                                        <span class="visually-hidden">Online</span>
-                                    </span>
-                                </li>
-                                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-1">
-                                    <div class="avatar avatar-sm rounded-circle me-2">
-                                        <img src="../assets/img/team-2.jpg" alt="kal" class="w-100">
-                                    </div>
-                                    <div class="d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm font-weight-semibold">Miriam Lore</h6>
-                                        <p class="mb-0 text-sm text-secondary">Well done!</p>
-                                    </div>
-                                    <span class="p-1 bg-success rounded-circle ms-auto me-3">
-                                        <span class="visually-hidden">Online</span>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="col-12">
                     <div class="card shadow-xs border mb-4 pb-3">
                         <div class="card-header pb-0 p-3">
