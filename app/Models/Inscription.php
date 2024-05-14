@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Inscription extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id', 'formateur_id'];
+    protected $fillable = ['user_id', 'formateur_id', 'formation_id',];
 
     // Relations
     public function user()

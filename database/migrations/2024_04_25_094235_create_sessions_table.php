@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('datefin');
             $table->integer('salle');
             $table->foreignId('formateur_id')->constrained();
+            $table->foreignId('formations_id')->constrained();
             $table->timestamps();
         });
     }

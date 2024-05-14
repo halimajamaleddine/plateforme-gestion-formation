@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-app.navbar titlePage="users management" />
+    <x-app.navbar titlePage="Reservation" />
 
     <link rel="stylesheet" href="resources/css/style.css">
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -11,14 +11,11 @@
                         <div class="pb-0 card-header">
                             <div class="row">
                                 <div class="col-6">
-                                    <h5 class="">User Management</h5>
-                                    <p class="mb-0 text-sm">
-                                        Here you can manage users.
-                                    </p>
+                                    <h5 class="">Reservation de ressources</h5>
                                 </div>
                                 <div class="col-6 text-end">
                                     <a href="#" class="btn btn-dark btn-primary">
-                                        <i class="fas fa-user-plus me-2"></i> Add Member
+                                        <i class="fas fa-user-plus me-2"></i> Ajouter des ressources
                                     </a>
                                 </div>
                             </div>
@@ -43,65 +40,55 @@
                                     <tr>
                                         <th
                                             class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            ID</th>
+                                            Nom de ressources</th>
                                         <th
                                             class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Name</th>
-                                        <th
-                                            class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Email</th>
+                                            Type de ressource</th>
                                         <th
                                             class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Role</th>
+                                            Disponibilité</th>
+
                                         <th
                                             class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Creation Date</th>
+                                            Reservation</th>
                                         <th
                                             class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            statue</th>
+                                            Disponibilité</th>
                                         <th
                                             class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Action</th>
+                                            Disponibilité</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($users as $user)
-                                        <tr>
-                                            <td class="align-middle bg-transparent border-bottom">{{ $user->id }}
-                                            </td>
-                                            <td class="align-middle bg-transparent border-bottom">{{ $user->nom }}
-                                            </td>
-                                            <td class="align-middle bg-transparent border-bottom">{{ $user->email }}
-                                            </td>
-                                            <td class="text-center align-middle bg-transparent border-bottom">
-                                                {{ $user->role }}</td>
-                                            <td class="text-center align-middle bg-transparent border-bottom">16/08/18
-                                            </td>
+                                    {{-- @foreach ($users as $user) --}}
+                                    <tr>
+                                        <td class="align-middle bg-transparent border-bottom">
+                                        </td>
+                                        <td class="align-middle bg-transparent border-bottom">
+                                        </td>
 
-                                            <td class="text-center align-middle bg-transparent border-bottom">
-                                                <form action="{{ route('inscription.acceptInFormation', $user->id) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('put')
-                                                    <input type="hidden" name="userid" value={{ $user->id }}>
-                                                    <button class="btn bg-success text-white" name="in_formation"
-                                                        value="accepter" onclick="this.form.submit()"
-                                                        @if ($user->in_formation) disabled @endif>Accepte</button>
-                                                    <button class="btn bg-danger text-white" name="in_formation"
-                                                        value="refuser" onclick="this.form.submit()"
-                                                        @if ($user->in_formation === false) disabled @endif>Refuser</button>
-                                                </form>
-                                            </td>
 
-                                            <td class="text-center align-middle bg-transparent border-bottom">
-                                                <a href="#"><i class="fas fa-user-edit"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#"><i class="fas fa-trash" aria-hidden="true"></i></a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                        <td class="text-center align-middle bg-transparent border-bottom">
+                                            <form action="{{ route('inscription.acceptInFormation') }}" method="POST">
+                                                @csrf
+                                                @method('put')
+                                                <input type="hidden" name="userid" value="">
+                                                <button class="btn bg-success text-white" name="in_formation"
+                                                    value="accepter" onclick="this.form.submit()">Reserver</button>
+                                                <button class="btn bg-danger text-white" name="in_formation"
+                                                    value="refuser" onclick="this.form.submit()">Libere</button>
+                                            </form>
+                                        </td>
+
+                                        <td class="text-center align-middle bg-transparent border-bottom">
+                                            <a href="#"><i class="fas fa-user-edit" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fas fa-trash" aria-hidden="true"></i></a>
+                                        </td>
+                                    </tr>
+                                    {{-- @endforeach --}}
                                 </tbody>
                             </table>
+
                         </div>
                     </div>
                 </div>

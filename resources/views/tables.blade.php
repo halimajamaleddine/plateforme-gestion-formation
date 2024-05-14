@@ -1,4 +1,5 @@
 <x-app-layout>
+    <x-app.navbar titlePage="Tables" />
 
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <x-app.navbar />
@@ -91,7 +92,6 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($formateurs as $formateur)
-
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
@@ -102,8 +102,7 @@
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center ms-1">
                                                         <h6 class="mb-0 text-sm font-weight-semibold">{{$formateur->nom}} {{$formateur->prenom}}</h6>
-                                                        <p class="text-sm text-secondary mb-0">{{$formateur->email}}
-                                                        </p>
+                                                        
                                                     </div>
                                                 </div>
                                             </td>

@@ -95,7 +95,7 @@ class UserController extends Controller
 
         ]);
 
-        return redirect()->route('tables')->with('success', 'Inscription réussie.');
+        return redirect()->route('formateurs-management')->with('success', 'Inscription réussie.');
     }
 
     public function acceptInFormation(Request $request)

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')-> constrained ();
             $table->foreignId('formateur_id')-> constrained ();
+            $table->foreignId('formation_id')-> constrained ();
             $table->timestamps();
         });
     }

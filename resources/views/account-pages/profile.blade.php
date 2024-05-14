@@ -1,4 +1,6 @@
 <x-app-layout>
+    <x-app.navbar titlePage="Profile" />
+
 
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="pt-7 pb-6 bg-cover"

@@ -1,4 +1,5 @@
 <x-app-layout>
+    <x-app.navbar titlePage="Dashboard" />
 
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <x-app.navbar />
@@ -228,19 +229,30 @@
                                             <span class="text-danger text-sm">{{ $message }}</span>
                                         @enderror
                                     </div>
+                                    <div class="col-6">
+                                        <label for="grade">Grade <span class="text-danger">*</span></label>
+                                        <select name="grade" id="grade" rows="2" class="form-control">
+                                            <option value="A">Grade - A</option>
+                                            <option value="B">Grade - B</option>
+                                            <option value="C">Grade - C</option>
+                                        </select>
+                                        @error('motivations')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="row p-2">
-                                    <label for="grade">Grade <span class="text-danger">*</span></label>
-                                    <select name="grade" id="grade" rows="2" class="form-control">
-                                        <option value="A">Grade - A</option>
-                                        <option value="B">Grade - B</option>
-                                        <option value="C">Grade - C</option>
-
-                                    </select>
-                                    @error('motivations')
-                                        <span class="text-danger text-sm">{{ $message }}</span>
-                                    @enderror
+                                    <label for="formation">Formation <span class="text-danger">*</span></label>
+                                        <select name="formation" id="formation" rows="2" class="form-control">
+                                            <option value="A">Formation1</option>
+                                            <option value="B">Formation2</option>
+                                            <option value="C">Formation3</option>
+                                        </select>
+                                        @error('motivations')
+                                            <span class="text-danger text-sm">{{ $message }}</span>
+                                        @enderror
                                 </div>
+                                
                                 <div class="row p-2">
                                     <label for="motivations">Motivations <span class="text-danger">*</span></label>
                                     <textarea name="motivations" id="motivations" rows="2" class="form-control"></textarea>
@@ -255,7 +267,7 @@
                 </div>
             </form>
 
-            <div class="row my-4">
+            {{-- <div class="row my-4">
                 <div class="col-lg-4 col-md-6 mb-md-0 mb-4">
                     <div class="card shadow-xs border h-100">
                         <div class="card-header pb-0">
@@ -651,8 +663,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+            </div> --}}
+            {{-- <div class="row">
                 <div class="col-lg-12">
                     <div class="card shadow-xs border">
                         <div class="card-header pb-0">
@@ -688,7 +700,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <x-app.footer />
         </div>
     </main>

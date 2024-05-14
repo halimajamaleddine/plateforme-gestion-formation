@@ -14,7 +14,7 @@ class FormateurController extends Controller
     public function index()
     {
         $formateurs = Formateur::all();
-        return view('tables', compact('formateurs'));
+        return view('account-pages.formateur-management', compact('formateurs'));
     }
 
     /**
@@ -31,11 +31,11 @@ class FormateurController extends Controller
     public function store(Request $request)
     {
 
-         Formateur::create([
-             'nom' => $request->nom,
-             'prenom' => $request->prenom,
-             'statue' => $request->statue,
-         
+        Formateur::create([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'statue' => $request->statue,
+
         ]);
 
         return redirect()->route('formateurs-management')->with('success');
@@ -55,7 +55,7 @@ class FormateurController extends Controller
      */
     public function edit(Formateur $formateur)
     {
-        return view('account-pages.formateur-edit', compact('formateur'));
+        return view('formateur-edit', compact('formateur'));
     }
 
     /**
@@ -63,18 +63,13 @@ class FormateurController extends Controller
      */
     public function update(Request $request, Formateur $formateur)
     {
-        {
-        
-            
-            $formateur->nom = $request->input('nom');
-            $formateur->prenom = $request->input('prenom');
-            $formateur->statut = $request->input('statut'); 
-        
-            $formateur->save();
-        
-            return redirect()->route('formateurs-management')->with('success', 'Formateur mis à jour avec succès');
-        }
+        $formateur->update([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'statue' => $request->statue,
+        ]);
 
+        return redirect()->route('formateurs-management')->with('success', 'Formateur mis à jour avec succès');
     }
 
     /**
