@@ -290,84 +290,10 @@
             --tw-backdrop-sepia:
         }
 
-        ::-webkit-backdrop {
-            --tw-border-spacing-x: 0;
-            --tw-border-spacing-y: 0;
-            --tw-translate-x: 0;
-            --tw-translate-y: 0;
-            --tw-rotate: 0;
-            --tw-skew-x: 0;
-            --tw-skew-y: 0;
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            --tw-pan-x: ;
-            --tw-pan-y: ;
-            --tw-pinch-zoom: ;
-            --tw-scroll-snap-strictness: proximity;
-            --tw-ordinal: ;
-            --tw-slashed-zero: ;
-            --tw-numeric-figure: ;
-            --tw-numeric-spacing: ;
-            --tw-numeric-fraction: ;
-            --tw-ring-inset: ;
-            --tw-ring-offset-width: 0px;
-            --tw-ring-offset-color: #fff;
-            --tw-ring-color: rgb(59 130 246 / 0.5);
-            --tw-ring-offset-shadow: 0 0 #0000;
-            --tw-ring-shadow: 0 0 #0000;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            --tw-blur: ;
-            --tw-brightness: ;
-            --tw-contrast: ;
-            --tw-grayscale: ;
-            --tw-hue-rotate: ;
-            --tw-invert: ;
-            --tw-saturate: ;
-            --tw-sepia: ;
-            --tw-drop-shadow: ;
-            --tw-backdrop-blur: ;
-            --tw-backdrop-brightness: ;
-            --tw-backdrop-contrast: ;
-            --tw-backdrop-grayscale: ;
-            --tw-backdrop-hue-rotate: ;
-            --tw-backdrop-invert: ;
-            --tw-backdrop-opacity: ;
-            --tw-backdrop-saturate: ;
-            --tw-backdrop-sepia:
-        }
+        ::-webkit-backdrop {--tw-border-spacing-x: 0;--tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ; --tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity; --tw-ordinal: ; --tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ;--tw-grayscale: ; --tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ; --tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia:}
 
-        ::backdrop {
-            --tw-border-spacing-x: 0;
-            --tw-border-spacing-y: 0;
-            --tw-translate-x: 0;
-            --tw-translate-y: 0;
-            --tw-rotate: 0;
-            --tw-skew-x: 0;
-            --tw-skew-y: 0;
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            --tw-pan-x: ;
-            --tw-pan-y: ;
-            --tw-pinch-zoom: ;
-            --tw-scroll-snap-strictness: proximity;
-            --tw-ordinal: ;
-            --tw-slashed-zero: ;
-            --tw-numeric-figure: ;
-            --tw-numeric-spacing: ;
-            --tw-numeric-fraction: ;
-            --tw-ring-inset: ;
-            --tw-ring-offset-width: 0px;
-            --tw-ring-offset-color: #fff;
-            --tw-ring-color: rgb(59 130 246 / 0.5);
-            --tw-ring-offset-shadow: 0 0 #0000;
-            --tw-ring-shadow: 0 0 #0000;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            --tw-blur: ;
-            --tw-brightness: ;
-            --tw-contrast: ;
-            --tw-grayscale: ;
+        ::backdrop { --tw-border-spacing-x: 0;--tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;
+            --tw-scale-x: 1;--tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ;--tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ; --tw-numeric-spacing: ;--tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5);--tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ;--tw-contrast: ; --tw-grayscale: ;
             --tw-hue-rotate: ;
             --tw-invert: ;
             --tw-saturate: ;
@@ -529,292 +455,190 @@
             --tw-bg-opacity: 1;
             background-color: rgb(255 255 255 / var(--tw-bg-opacity))
         }
-
         .bg-red-50 {
             --tw-bg-opacity: 1;
             background-color: rgb(254 242 242 / var(--tw-bg-opacity))
         }
-
         .bg-dots-darker {
             background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")
         }
-
         .from-gray-700\/50 {
             --tw-gradient-from: rgb(55 65 81 / 0.5);
             --tw-gradient-to: rgb(55 65 81 / 0);
             --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
         }
-
         .via-transparent {
             --tw-gradient-to: rgb(0 0 0 / 0);
             --tw-gradient-stops: var(--tw-gradient-from), transparent, var(--tw-gradient-to)
         }
-
         .bg-center {
             background-position: center
         }
-
         .stroke-red-500 {
             stroke: #ef4444
         }
-
         .stroke-gray-400 {
             stroke: #9ca3af
         }
-
         .p-6 {
             padding: 1.5rem
         }
-
         .px-6 {
             padding-left: 1.5rem;
             padding-right: 1.5rem
         }
-
         .text-center {
             text-align: center
-        }
-
-        .text-right {
-            text-align: right
-        }
-
-        .text-xl {
+        }.text-right {
+            text-align: right}.text-xl {
             font-size: 1.25rem;
-            line-height: 1.75rem
-        }
-
-        .text-sm {
+            line-height: 1.75rem}.text-sm {
             font-size: 0.875rem;
-            line-height: 1.25rem
-        }
-
-        .font-semibold {
-            font-weight: 600
-        }
-
-        .leading-relaxed {
-            line-height: 1.625
-        }
-
-        .text-gray-600 {
+            line-height: 1.25rem}.font-semibold {
+            font-weight: 600} .leading-relaxed {
+            line-height: 1.625 } .text-gray-600 {
             --tw-text-opacity: 1;
-            color: rgb(75 85 99 / var(--tw-text-opacity))
-        }
-
-        .text-gray-900 {
+            color: rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-900 {
             --tw-text-opacity: 1;
-            color: rgb(17 24 39 / var(--tw-text-opacity))
-        }
-
-        .text-gray-500 {
+            color: rgb(17 24 39 / var(--tw-text-opacity)) }.text-gray-500 {
             --tw-text-opacity: 1;
-            color: rgb(107 114 128 / var(--tw-text-opacity))
-        }
-
-        .underline {
+            color: rgb(107 114 128 / var(--tw-text-opacity))}.underline {
             -webkit-text-decoration-line: underline;
-            text-decoration-line: underline
-        }
-
-        .antialiased {
+            text-decoration-line: underline}.antialiased {
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale
-        }
-
-        .shadow-2xl {
+            -moz-osx-font-smoothing: grayscale}.shadow-2xl {
             --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
             --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
-        }
-
-        .shadow-gray-500\/20 {
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) }.shadow-gray-500\/20 {
             --tw-shadow-color: rgb(107 114 128 / 0.2);
-            --tw-shadow: var(--tw-shadow-colored)
-        }
-
-        .transition-all {
+            --tw-shadow: var(--tw-shadow-colored)}.transition-all {
             transition-property: all;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms
-        }
-
-        .selection\:bg-red-500 *::selection {
+            transition-duration: 150ms}.selection\:bg-red-500 *::selection {
             --tw-bg-opacity: 1;
-            background-color: rgb(239 68 68 / var(--tw-bg-opacity))
-        }
-
+            background-color: rgb(239 68 68 / var(--tw-bg-opacity))}
         .selection\:text-white *::selection {
             --tw-text-opacity: 1;
             color: rgb(255 255 255 / var(--tw-text-opacity))
-        }
-
-        .selection\:bg-red-500::selection {
+        }.selection\:bg-red-500::selection {
             --tw-bg-opacity: 1;
             background-color: rgb(239 68 68 / var(--tw-bg-opacity))
-        }
-
-        .selection\:text-white::selection {
+        }.selection\:text-white::selection {
             --tw-text-opacity: 1;
             color: rgb(255 255 255 / var(--tw-text-opacity))
-        }
-
-        .hover\:text-gray-900:hover {
+        }.hover\:text-gray-900:hover {
             --tw-text-opacity: 1;
             color: rgb(17 24 39 / var(--tw-text-opacity))
-        }
-
-        .hover\:text-gray-700:hover {
+        }.hover\:text-gray-700:hover {
             --tw-text-opacity: 1;
             color: rgb(55 65 81 / var(--tw-text-opacity))
-        }
-
-        .focus\:rounded-sm:focus {
+        }.focus\:rounded-sm:focus {
             border-radius: 0.125rem
-        }
-
-        .focus\:outline:focus {
+        } .focus\:outline:focus {
             outline-style: solid
-        }
-
-        .focus\:outline-2:focus {
+        }.focus\:outline-2:focus {
             outline-width: 2px
-        }
-
-        .focus\:outline-red-500:focus {
+        }.focus\:outline-red-500:focus {
             outline-color: #ef4444
-        }
-
-        .group:hover .group-hover\:stroke-gray-600 {
+        }.group:hover .group-hover\:stroke-gray-600 {
             stroke: #4b5563
-        }
-
-        .z-10 {
+        }.z-10 {
             z-index: 10
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
+        } @media (prefers-reduced-motion: no-preference) {
             .motion-safe\:hover\:scale-\[1\.01\]:hover {
                 --tw-scale-x: 1.01;
                 --tw-scale-y: 1.01;
                 transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
             }
-        }
-
-        @media (prefers-color-scheme: dark) {
+        }@media (prefers-color-scheme: dark) {
             .dark\:bg-gray-900 {
                 --tw-bg-opacity: 1;
                 background-color: rgb(17 24 39 / var(--tw-bg-opacity))
             }
-
             .dark\:bg-gray-800\/50 {
                 background-color: rgb(31 41 55 / 0.5)
             }
-
             .dark\:bg-red-800\/20 {
                 background-color: rgb(153 27 27 / 0.2)
             }
-
             .dark\:bg-dots-lighter {
                 background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")
             }
-
             .dark\:bg-gradient-to-bl {
                 background-image: linear-gradient(to bottom left, var(--tw-gradient-stops))
             }
-
             .dark\:stroke-gray-600 {
                 stroke: #4b5563
             }
-
             .dark\:text-gray-400 {
                 --tw-text-opacity: 1;
                 color: rgb(156 163 175 / var(--tw-text-opacity))
             }
-
             .dark\:text-white {
                 --tw-text-opacity: 1;
                 color: rgb(255 255 255 / var(--tw-text-opacity))
             }
-
             .dark\:shadow-none {
                 --tw-shadow: 0 0 #0000;
                 --tw-shadow-colored: 0 0 #0000;
                 box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
             }
-
             .dark\:ring-1 {
                 --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
                 --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
                 box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)
             }
-
             .dark\:ring-inset {
                 --tw-ring-inset: inset
             }
-
             .dark\:ring-white\/5 {
                 --tw-ring-color: rgb(255 255 255 / 0.05)
             }
-
             .dark\:hover\:text-white:hover {
                 --tw-text-opacity: 1;
                 color: rgb(255 255 255 / var(--tw-text-opacity))
             }
-
             .group:hover .dark\:group-hover\:stroke-gray-400 {
                 stroke: #9ca3af
             }
         }
-
         @media (min-width: 640px) {
             .sm\:fixed {
                 position: fixed
             }
-
             .sm\:top-0 {
                 top: 0px
             }
-
             .sm\:right-0 {
                 right: 0px
             }
-
             .sm\:ml-0 {
                 margin-left: 0px
             }
-
             .sm\:flex {
                 display: flex
             }
-
             .sm\:items-center {
                 align-items: center
             }
-
             .sm\:justify-center {
                 justify-content: center
             }
-
             .sm\:justify-between {
                 justify-content: space-between
             }
-
             .sm\:text-left {
                 text-align: left
             }
-
             .sm\:text-right {
                 text-align: right
             }
         }
-
         @media (min-width: 768px) {
             .md\:grid-cols-2 {
                 grid-template-columns: repeat(2, minmax(0, 1fr))
             }
         }
-
         @media (min-width: 1024px) {
             .lg\:gap-8 {
                 gap: 2rem
@@ -824,7 +648,6 @@
                 padding: 2rem
             }
         }
-
         .footer {
             position: fixed;
             /* Position fixée pour rester au bas de la page */
@@ -841,27 +664,21 @@
             border-top: 1px solid #dee2e6;
             /* Bordure supérieure */
         }
-
         .date {
             text-align: right;
             padding-top: 10%;
             padding-right: 9%;
         }
-
         .contenue {
             padding-right: 20%;
             padding-top: 12%;
         }
-
         h2 {
             font-size: 150%;
         }
     </style>
-
     <title>Document</title>
-
 </head>
-
 <body>
     <div class="logo flex items-center justify-center">
         <div class="text-center">
@@ -871,7 +688,7 @@
                         Université Mohammed V de Rabat <br> La Présidence
                     </h1>
                 </b>
-                <img src="../assets/img/um5-logo.png" alt="" class="mx-2">
+                <img src="../assets/img/um5-logo.png" alt="um5-logo" class="mx-2">
                 <b>
                     <h1 class="font-bold"><br>المملكة المغربية
                         <br>جامعة محمد الخامس بالرباط <br> رئاسة الجامعة
@@ -884,22 +701,22 @@
         <p class="date">
             Rabat le 05 juillet 2023
         </p>
-
-
     </b>
     <div class="contenue">
         <b>
             <h2 style="text-align: center">Attestion</h2>
-
             <pre class="text">
-            <b >
+            <b>
                 Le Président par intérim de l'Université Mohammed V de Rabat , attest ,par 
-                la présente que , Mme EL MELLOUKI SANAE Professeur à la Faculté des Sciences de 
-                Rabat , a bénéficié d'une session de formation sur " Titre de Formation" , 
-                le mardi 04 juillet 2023 au centre de d'innovation Pédagogique . 
+                la présente que , Mme {{ $user->nom }} {{ $user->prenom }} à la {{$user->etablissement}} 
+                Rabat , a bénéficié d'une session de formation sur @foreach ($formateurs as $formateur){{ $formateur->titre }}, @endforeach
+                @foreach ($sessions as $session)
+                <?php
+                $date = \Carbon\Carbon::parse($session->date);
+                ?>
+                le{{ $date->translatedFormat('l d F Y') }} au centre de d'innovation Pédagogique . @endforeach
                 En foi de quoi , la présente attestation est délivrée pour servir et valoir ce que 
                 de droit .
-
             </b>
         </pre>
         </b>
@@ -915,7 +732,6 @@
             </b>
         </p>
     </div>
-
 </body>
-
 </html>
+

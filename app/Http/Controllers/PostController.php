@@ -2,33 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Session;
 use App\Models\Formateur;
 use App\Models\Formation;
 use Illuminate\Http\Request;
 
-class AttestationController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::all();
-        return view('account-pages.listeAttestation', compact('users'));
-    }
-    public function show($id)
-    {
-        $user = User::findOrFail($id);
         $formateurs = Formateur::all();
         $formations = Formation::all();
-        $sessions = Session::all();
-        return view('account-pages.attestation', [
-            'user' => $user,
+        return view('account-pages.profile', [
             'formateurs' => $formateurs,
             'formations' => $formations,
-            'sessions' => $sessions
         ]);
     }
 
@@ -37,7 +26,6 @@ class AttestationController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -51,6 +39,10 @@ class AttestationController extends Controller
     /**
      * Display the specified resource.
      */
+    public function show(string $id)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.

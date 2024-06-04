@@ -32,153 +32,62 @@
                 </div>
             </div>
         </div>
-        {{-- session notification settings --}}
+        {{-- session POST --}}
         <div class="container my-3 py-3">
             <div class="row">
-                
-                {{-- info de profile --}}
-                <div class="col-12 col-xl-4 mb-4">
-                    <div class="card border shadow-xs h-100">
-                        <div class="card-header pb-0 p-3">
-                            <div class="row">
-                                <div class="col-md-8 col-9">
-                                    <h6 class="mb-0 font-weight-semibold text-lg">Profile information</h6>
-                                    <p class="text-sm mb-1">Edit the information about you.</p>
-                                </div>
-                                <div class="col-md-4 col-3 text-end">
-                                    <button type="button" class="btn btn-white btn-icon px-2 py-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-                                            viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body p-3">
-                            <p class="text-sm mb-4">
-                                Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two equally
-                                difficult paths, choose the one more painful in the short term (pain avoidance is
-                                creating an illusion of equality).
-                            </p>
-                            <ul class="list-group">
-                                <li
-                                    class="list-group-item border-0 ps-0 text-dark font-weight-semibold pt-0 pb-1 text-sm">
-                                    <span class="text-secondary">First Name:</span> &nbsp; Noah
-                                </li>
-                                <li class="list-group-item border-0 ps-0 text-dark font-weight-semibold pb-1 text-sm">
-                                    <span class="text-secondary">Last Name:</span> &nbsp; Mclaren
-                                </li>
-                                <li class="list-group-item border-0 ps-0 text-dark font-weight-semibold pb-1 text-sm">
-                                    <span class="text-secondary">Mobile:</span> &nbsp; +(44) 123 1234 123
-                                </li>
-                                <li class="list-group-item border-0 ps-0 text-dark font-weight-semibold pb-1 text-sm">
-                                    <span class="text-secondary">Function:</span> &nbsp; Manager - Organization
-                                </li>
-                                <li class="list-group-item border-0 ps-0 text-dark font-weight-semibold pb-1 text-sm">
-                                    <span class="text-secondary">Location:</span> &nbsp; USA
-                                </li>
-                                <li class="list-group-item border-0 ps-0 text-dark font-weight-semibold pb-1 text-sm">
-                                    <span class="text-secondary">Social:</span> &nbsp;
-                                    <a class="btn btn-link text-dark mb-0 ps-1 pe-1 py-0" href="javascript:;">
-                                        <i class="fab fa-linkedin fa-lg"></i>
-                                    </a>
-                                    <a class="btn btn-link text-dark mb-0 ps-1 pe-1 py-0" href="javascript:;">
-                                        <i class="fab fa-github fa-lg"></i>
-                                    </a>
-                                    <a class="btn btn-link text-dark mb-0 ps-1 pe-1 py-0" href="javascript:;">
-                                        <i class="fab fa-slack fa-lg"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
                 <div class="col-12">
                     <div class="card shadow-xs border mb-4 pb-3">
                         <div class="card-header pb-0 p-3">
-                            <h6 class="mb-0 font-weight-semibold text-lg">Last articles</h6>
-                            <p class="text-sm mb-1">Here you will find the latest articles.</p>
+                            <h6 class="mb-0 font-weight-semibold text-lg">Dernière publication</h6>
+                            <p class="text-sm mb-1">ici vous pouvez trouver les dernière publication.</p>
                         </div>
                         <div class="card-body p-3">
                             <div class="row">
-                                <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
-                                    <div
-                                        class="card card-background border-radius-xl card-background-after-none align-items-start mb-4">
-                                        <div class="full-background bg-cover"
-                                            style="background-image: url('../assets/img/img-8.jpg')"></div>
-                                        <span class="mask bg-dark opacity-1 border-radius-sm"></span>
-                                        <div class="card-body text-start p-3 w-100">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div
-                                                        class="blur shadow d-flex align-items-center w-100 border-radius-md border border-white mt-8 p-3">
-                                                        <div class="w-50">
-                                                            <p class="text-dark text-sm font-weight-bold mb-1">Sara
-                                                                Lamalo</p>
-                                                            <p class="text-xs text-secondary mb-0">20 Jul 2022</p>
+                                @foreach ($formations as $formation)
+                                    <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
+                                        <div
+                                            class="card card-background border-radius-xl card-background-after-none align-items-start mb-4">
+                                            <div class="full-background bg-cover"
+                                                style="background-image: url('{{ asset('storage/' . $formation->fichier) }}')">
+                                            </div>
+                                            <span class="mask bg-dark opacity-1 border-radius-sm"></span>
+                                            <div class="card-body text-start p-3 w-100">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div
+                                                            class="blur shadow d-flex align-items-center w-100 border-radius-md border border-white mt-8 p-3">
+                                                            <div class="w-50">
+                                                                <p class="text-dark text-sm font-weight-bold mb-1">Sara
+                                                                    Lamalo</p>
+                                                                <p class="text-xs text-secondary mb-0">
+                                                                    {{ $formation->date }}</p>
+                                                            </div>
+                                                            
+                                                            </p>
                                                         </div>
-                                                        <p class="text-dark text-sm font-weight-bold ms-auto">Growth
-                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <a href="javascript:;">
+                                            <h4 class="font-weight-semibold">
+                                                {{ $formation->titre }}
+                                            </h4>
+                                        </a>
+                                        <p class="mb-4">
+                                            {{ $formation->objectif }}
+                                        </p>
+                                        <a href="javascript:;"
+                                            class="text-dark font-weight-semibold icon-move-right mt-auto w-100 mb-5">
+                                            Read post
+                                            <i class="fas fa-arrow-right-long text-sm ms-1" aria-hidden="true"></i>
+                                        </a>
                                     </div>
-                                    <a href="javascript:;">
-                                        <h4 class="font-weight-semibold">
-                                            Best strategy games
-                                        </h4>
-                                    </a>
-                                    <p class="mb-4">
-                                        As Uber works through a huge amount of internal management turmoil.
-                                    </p>
-                                    <a href="javascript:;"
-                                        class="text-dark font-weight-semibold icon-move-right mt-auto w-100 mb-5">
-                                        Read post
-                                        <i class="fas fa-arrow-right-long text-sm ms-1" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                                <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
-                                    <div
-                                        class="card card-background border-radius-xl card-background-after-none align-items-start mb-4">
-                                        <div class="full-background bg-cover"
-                                            style="background-image: url('../assets/img/img-9.jpg')"></div>
-                                        <span class="mask bg-dark opacity-1 border-radius-sm"></span>
-                                        <div class="card-body text-start p-3 w-100">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div
-                                                        class="blur shadow d-flex align-items-center w-100 border-radius-md border border-white mt-8 p-3">
-                                                        <div class="w-50">
-                                                            <p class="text-dark text-sm font-weight-bold mb-1">Charles
-                                                                Deluvio</p>
-                                                            <p class="text-xs text-secondary mb-0">17 Jul 2022</p>
-                                                        </div>
-                                                        <p class="text-dark text-sm font-weight-bold ms-auto">Education
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="javascript:;">
-                                        <h4 class="font-weight-semibold">
-                                            Don't be afraid to be wrong
-                                        </h4>
-                                    </a>
-                                    <p class="mb-4">
-                                        As Uber works through a huge amount of internal management turmoil.
-                                    </p>
-                                    <a href="javascript:;"
-                                        class="text-dark font-weight-semibold icon-move-right mt-auto w-100 mb-5">
-                                        Read post
-                                        <i class="fas fa-arrow-right-long text-sm ms-1" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                                <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
+                                @endforeach
+
+                                {{-- Ajouter une publication de formation --}}
+                                <div class="col-xl-4 col-md-6 mb-xl-0 mb-4" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
                                     <div class="card h-100 card-plain border border-dashed px-5">
                                         <div class="card-body d-flex flex-column justify-content-center text-center">
                                             <a href="javascript:;">
@@ -191,9 +100,10 @@
                                                             clip-rule="evenodd" />
                                                     </svg>
                                                 </div>
-                                                <h5 class="text-dark text-lg"> Create new post </h5>
-                                                <p class="text-sm text-secondary mb-0">Drive into the editor and add
-                                                    your content.</p>
+                                                <h5 class="text-dark text-lg">Créer une nouvelle publication </h5>
+                                                <p class="text-sm text-secondary mb-0">Conduisez dans l’éditeur et
+                                                    ajoutez
+                                                    votre contenu.</p>
                                             </a>
                                         </div>
                                     </div>
@@ -202,6 +112,120 @@
                         </div>
                     </div>
                 </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 col-12">
+                        @if (session('error'))
+                            <div class="alert alert-danger" role="alert" id="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                        @if (session('success'))
+                            <div class="alert alert-success" role="alert" id="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ajouter un formateur</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{ route('formations.store') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+
+                                    <div class="mb-3 row justify-content-center">
+                                        <div class="col-lg-9 col-2 ">
+                                            <div class="card " id="basic-info">
+                                                <div class="pt-0 card-body">
+                                                    <div class="row">
+                                                        <div class="col-10">
+                                                            <label for="titre">Titre <span
+                                                                    class="text-danger">*</span></label>
+                                                            <input type="text" name="titre" id="titre"
+                                                                placeholder="Titre de la formation"
+                                                                class="form-control">
+                                                            @error('titre')
+                                                                <span
+                                                                    class="text-danger text-sm">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-10">
+                                                            <label for="objectif">Objectif <span
+                                                                    class="text-danger">*</span></label>
+                                                            <input type="text" name="objectif" id="objectif"
+                                                                placeholder="Objectif de la formation"
+                                                                class="form-control">
+                                                            @error('objectif')
+                                                                <span
+                                                                    class="text-danger text-sm">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-10">
+                                                            <label for="contenu">Contenu <span
+                                                                    class="text-danger">*</span></label>
+                                                            <textarea name="contenu" id="contenu" class="form-control" rows="5" placeholder="Contenu de la formation"></textarea>
+                                                            @error('contenu')
+                                                                <span
+                                                                    class="text-danger text-sm">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-10">
+                                                            <label for="formateur_id">Formateur <span
+                                                                    class="text-danger">*</span></label>
+                                                            <select name="formateur_id" id="formateur_id"
+                                                                class="form-control">
+                                                                @foreach ($formateurs as $formateur)
+                                                                    <option value="{{ $formateur->id }}">
+                                                                        {{ $formateur->nom }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('formateur_id')
+                                                                <span
+                                                                    class="text-danger text-sm">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-10">
+                                                            <label for="fichier">Fichier</label>
+                                                            <input type="file" name="fichier" id="fichier"
+                                                                class="form-control">
+                                                            @error('fichier')
+                                                                <span
+                                                                    class="text-danger text-sm">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Fermer</button>
+                                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- fin modal --}}
             </div>
         </div>
     </div>
@@ -269,8 +293,8 @@
                     href="https://www.creative-tim.com/learning-lab/bootstrap/installation-guide/corporate-ui-dashboard">View
                     documentation</a>
                 <div class="w-100 text-center">
-                    <a class="github-button" href="https://github.com/creativetimofficial/corporate-ui-dashboard" target="_blank"
-                        data-icon="octicon-star" data-size="large" data-show-count="true"
+                    <a class="github-button" href="https://github.com/creativetimofficial/corporate-ui-dashboard"
+                        target="_blank" data-icon="octicon-star" data-size="large" data-show-count="true"
                         aria-label="Star creativetimofficial/corporate-ui-dashboard on GitHub">Star</a>
                     <h6 class="mt-3">Thank you for sharing!</h6>
                     <a href="https://twitter.com/intent/tweet?text=Check%20Corporate%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fcorporate-ui-dashboard"
@@ -287,3 +311,11 @@
     </div>
 
 </x-app-layout>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.col-6').addEventListener('click', function() {
+            var modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+            modal.show();
+        });
+    });
+</script>

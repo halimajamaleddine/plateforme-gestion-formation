@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Formateur;
+use App\Models\Formation;
 use App\Models\User;
 use App\Models\UserModele;
+use App\Models\Inscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,8 +17,13 @@ class UserController extends Controller
      */
     public function index()
     {
+
         $users = User::all();
-        return view('account-pages.users-management', compact('users'));
+        $formations = Formation::all();
+        return view('account-pages.users-management', [
+            'users' => $users,
+            'formations' => $formations
+        ]);
     }
 
 
@@ -30,39 +38,13 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request , User $user)
     {
-        // $request->validate([
-        //     'nom'=>'required',
-        //     'prenom'=>'required',
-        //     'email'=>'required|email|unique:users,email',
-        //     'password'=>'required',
-        //     'telephone'=>'required',
-        //     'etablissement'=>'required',
-        //     'anciennete'=>'required',
-        //     'grade'=>'required',
-        //     'motivations'=>'required'
-        // ]);
+       
+        
 
-
-
-        // User::create([
-        //     'nom' => $request->nom,
-        //     'prenom' => $request->prenom,
-        //     'email' => $request->email,
-        //     'password' => bcrypt($request->password),
-        //     'telephone' => $request->telephone,
-        //     'etablissement' => $request->etablissement,
-        //     'anciennete' => $request->anciennete,
-        //     'grade' => $request->grade,
-        //     'motivations' => $request->motivations,
-        // ]);
-
-        // return redirect()->route('tables')->with('success', 'Inscription réussie.');
+        // return redirect()->route('users-management')->with('success', 'Utilisateur et inscription créés avec succès.');
     }
-
-
-
 
     /**
      * Display the specified resource.
@@ -78,24 +60,31 @@ class UserController extends Controller
      */
     public function edit(UserModele $userModele)
     {
-        //
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, User $user)
-
     {
         $user->where('id', Auth::User()->id)->update([
             'etablissement' => $request->etablissement,
             'anciennete' => $request->anciennete,
             'grade' => $request->grade,
             'motivations' => $request->motivations,
-
-        ]);
-
-        return redirect()->route('formateurs-management')->with('success', 'Inscription réussie.');
+            'telephone' => $request->telephone,
+        ]); 
+        return redirect()->route('sucess-page')->with('success', 'Inscription réussie.');
+        // if ($user) {
+        //     $updatedUser = User::find(Auth::user()->id);   
+        //     Inscription::create([
+        //         'user_id' => $updatedUser->id,
+        //         'formation_id' => $formation->formation_id,  
+        //     ]);
+        // } else {
+        //     return redirect()->back()->with('error', 'Échec de la mise à jour de l\'utilisateur.');
+        // }
     }
 
     public function acceptInFormation(Request $request)

@@ -14,8 +14,7 @@
                         href="{{ route('dashboard') }}">
                         <div
                             class="icon icon-shape icon-sm px-0 text-center d-flex align-items-center justify-content-center">
-                            <svg width="30px" height="30px" viewBox="0 0 48 48" version="1.1"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <svg width="30px" height="30px" viewBox="0 0 48 48" version="1.1">
                                 <title>dashboard</title>
                                 <g id="dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <g id="template" transform="translate(12.000000, 12.000000)" fill="#FFFFFF"
@@ -33,6 +32,12 @@
                                 </g>
                             </svg>
                         </div>
+                        <span class="nav-link-text ms-1">Accueil</span>
+                    </a>
+                </li>
+                <li class="nav-item border-start my-0 pt-2">
+                    <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('inscription') ? 'active' : '' }}"
+                        href="{{ route('inscription') }}">
                         <span class="nav-link-text ms-1">Inscription</span>
                     </a>
                 </li>
@@ -45,7 +50,7 @@
                                     d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span class="font-weight-normal text-md ms-2">Laravel Examples</span>
+                            <span class="font-weight-normal text-md ms-2">Utilisateur</span>
                         </div>
                     </li>
                     <li class="nav-item border-start my-0 pt-2">
@@ -75,12 +80,6 @@
                     </div>
                 </li>
                 <li class="nav-item border-start my-0 pt-2">
-                    <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('tables') ? 'active' : '' }}"
-                        href="{{ route('tables') }}">
-                        <span class="nav-link-text ms-1">Tables</span>
-                    </a>
-                </li>
-                <li class="nav-item border-start my-0 pt-2">
                     <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('users-management') ? 'active' : '' }}"
                         href="{{ route('users-management') }}">
                         <span class="nav-link-text ms-1">User Management</span>
@@ -100,14 +99,14 @@
                     </a>
                 </li>
                 <li class="nav-item border-start my-0 pt-2">
-                    <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('attestation') ? 'active' : '' }}"
-                        href="{{ route('attestation') }}">
+                    <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('listeAttestation') ? 'active' : '' }}"
+                        href="{{ route('listeAttestation') }}">
                         <span class="nav-link-text ms-1">Attestations</span>
                     </a>
                 </li>
                 <li class="nav-item border-start my-0 pt-2">
                     <a class="nav-link position-relative ms-0 ps-2 py-2 {{ is_current_route('reservation') ? 'active' : '' }}"
-                        href="{{ route('reservation.index') }}">
+                        href="{{ route('reservation') }}">
                         <span class="nav-link-text ms-1">Reservation</span>
                     </a>
                 </li>

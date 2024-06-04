@@ -40,34 +40,36 @@
                                     <tr>
                                         <th
                                             class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Nom de ressources</th>
+                                            Nom de ressources </th>
                                         <th
                                             class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Type de ressource</th>
-                                        <th
-                                            class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Disponibilité</th>
+                                            Type de ressource </th>
 
                                         <th
                                             class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Reservation</th>
+                                            Date debut </th>
                                         <th
                                             class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Disponibilité</th>
+                                            Date fin </th>
                                         <th
                                             class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Disponibilité</th>
+                                            Reservation </th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($users as $user) --}}
+                                    {{-- @foreach ($reservations as $reservation) --}}
                                     <tr>
                                         <td class="align-middle bg-transparent border-bottom">
+                                            {{-- {{$reservation ->$nom_ressource}} --}}
+                                        </td>
+                                        <td class="align-middle bg-transparent border-bottom">
+                                        
                                         </td>
                                         <td class="align-middle bg-transparent border-bottom">
                                         </td>
-
-
+                                        <td class="align-middle bg-transparent border-bottom">
+                                        </td>
                                         <td class="text-center align-middle bg-transparent border-bottom">
                                             <form action="{{ route('inscription.acceptInFormation') }}" method="POST">
                                                 @csrf
@@ -80,15 +82,10 @@
                                             </form>
                                         </td>
 
-                                        <td class="text-center align-middle bg-transparent border-bottom">
-                                            <a href="#"><i class="fas fa-user-edit" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fas fa-trash" aria-hidden="true"></i></a>
-                                        </td>
                                     </tr>
                                     {{-- @endforeach --}}
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>

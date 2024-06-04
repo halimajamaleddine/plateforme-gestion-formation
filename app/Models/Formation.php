@@ -15,6 +15,10 @@ class Formation extends Model
     {
         return $this->hasMany(Formateur::class);
     }
+    public function sessions()
+    {
+        return $this->hasMany(Session::class, 'formations_id');
+    }
 
     // Relation avec feedback_evaluations
     public function feedbackEvaluations()
@@ -22,3 +26,4 @@ class Formation extends Model
         return $this->hasMany(FeedbackEvaluation::class);
     }
 }
+

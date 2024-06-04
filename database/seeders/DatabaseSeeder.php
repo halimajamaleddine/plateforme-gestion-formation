@@ -12,12 +12,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory()->create([
-            'nom' => 'jamal eddine',
-            'prenom' => 'halima',
-            'email' => 'halima.admin@gmail.com',
+            'nom' => 'ELMENZHI',
+            'prenom' => 'kaoutar',
+            'email' => 'ELMENZHIkaoutar.admin@gmail.com',
             'role' => 'admin',
-            'etablissement'=>  'test',
-            'password' => Hash::make('secret'),
+            'etablissement'=>  'FSJES',
+            'password' => Hash::make('admin123'),
         ]);
     }
 }

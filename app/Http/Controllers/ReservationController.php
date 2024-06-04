@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Formation;
+use App\Models\Session;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -11,10 +11,9 @@ class ReservationController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $reservation = Formation::all();
-        return view('account-pages.reservation', compact('reservation'));
-
+    { 
+        $reservations = Session::all();
+        return view('account-pages.reservation', compact('reservations'));
     }
 
     /**

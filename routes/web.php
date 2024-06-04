@@ -3,16 +3,19 @@
 use App\Models\Formateur;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\FormateurController;
+use App\Http\Controllers\FormationController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AttestationController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\InscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,24 +27,23 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/success-page', function () {
+    return view('sucess-page');
+})->name('sucess-page');
 
 Route::get('/', function () {
     return redirect('/dashboard');
 })->middleware('auth');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard')->middleware('auth');
+Route::get('/dashboard',[InscriptionController::class,'index'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard/inscription',[InscriptionController::class,'inscription'])->name('inscription')->middleware('auth');
 
 Route::get('/tables', function () {
     $formateurs = Formateur::all();
     return view('tables', compact('formateurs'));
 })->name('tables')->middleware('auth');
 
-
-Route::get('/profile', function () {
-    return view('account-pages.profile');
-})->name('profile')->middleware('auth');
+Route::get('/profile',[PostController::class,'index'])->name('profile')->middleware('auth');
 
 Route::get('/signin', function () {
     return view('account-pages.signin');
@@ -96,14 +98,19 @@ Route::get('/account-pages/formation-management', [FormateurController::class, '
 Route::get('/account-pages/users-management', [UserController::class, 'index'])->name('users-management')->middleware('auth');
 Route::post('/account-pages/formateur-add', [FormateurController::class, 'store'])->name('Ajouter.formateur')->middleware('auth');
 Route::get('/account-pages/users-management', [UserController::class, 'index'])->name('users-management')->middleware('auth');
-Route::get('/account-pages/attestation', [AttestationController::class, 'index'])->name('attestation');
+Route::get('/account-pages/attestation', [AttestationController::class, 'index'])->name('listeAttestation')->middleware('auth');
+Route::get('/account-pages/listeAttestation/{id}', [AttestationController::class, 'show'])->name('attestation')->middleware('auth');
 
 Route::put('/formateurs/{formateur}', [FormateurController::class, 'update'])->name('formateurs.update')->middleware('auth');
 Route::get('/formateurs/{formateur}/edit', [FormateurController::class, 'edit'])->name('formateurs.edit')->middleware('auth');
 Route::delete('/formateurs/{formateur}', [FormateurController::class, 'destroy'])->name('formateurs.destroy')->middleware('auth');
 
-Route::get('/admin/reservation',[ReservationController::class,'index'])->name('reservation.index')->middleware('auth');
+Route::get('/admin/reservation',[ReservationController::class,'index'])->name('reservation')->middleware('auth');
 Route::get('/admin/session',[SessionController::class,'index'])->name('session.index')->middleware('auth');
+Route::post('/sessions', [SessionController::class, 'store'])->name('sessions.store');
+Route::post('/formations', [FormationController::class, 'store'])->name('formations.store');
 
-
+Route::resource('users', UserController::class);
+Route::resource('inscriptions', InscriptionController::class);
+Route::resource('sessions', SessionController::class);
 // Route::get('/tables', [FormateurController::class, 'index'])->name('tables')->middleware('auth');

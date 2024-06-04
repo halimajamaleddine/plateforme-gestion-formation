@@ -2,36 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Session;
-use App\Models\Formateur;
 use App\Models\Formation;
+use App\Models\Inscription;
 use Illuminate\Http\Request;
 
-class AttestationController extends Controller
+class InscriptionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::all();
-        return view('account-pages.listeAttestation', compact('users'));
-    }
-    public function show($id)
-    {
-        $user = User::findOrFail($id);
-        $formateurs = Formateur::all();
         $formations = Formation::all();
-        $sessions = Session::all();
-        return view('account-pages.attestation', [
-            'user' => $user,
-            'formateurs' => $formateurs,
-            'formations' => $formations,
-            'sessions' => $sessions
-        ]);
+        return view('dashboard', compact('formations'));
     }
-
+    public function inscription()
+    {
+        $formations = Formation::all();
+        return view('inscription', compact('formations'));
+    }
+    
     /**
      * Show the form for creating a new resource.
      */
@@ -45,12 +35,28 @@ class AttestationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $validatedData = $request->validate([
+        //     'user_id' => 'required|exists:users,id',
+        //     'formateur_id' => 'required|exists:formateurs,id',
+        //     'formation_id' => 'required|exists:formations,id',
+        // ]);
+    
+        // Inscription::create([
+        //     'user_id' => $validatedData['user_id'],
+        //     'formateur_id' => $validatedData['formateur_id'],
+        //     'formation_id' => $validatedData['formation_id'],
+        // ]);
+    
+        // return redirect()->route('dashboard')->with('success', 'Inscription créée avec succès.');
     }
 
     /**
      * Display the specified resource.
      */
+    public function show(string $id)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.

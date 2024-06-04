@@ -37,6 +37,21 @@
                                 @endif
                             </div>
                         </div>
+                        {{-- <div class="row p-3">
+                            <div class="col-12">
+                                <form action="{{ route('users.index') }}" method="GET" class="d-flex">
+                                    <select name="formation" class="form-control" placeholder="Filtrer par titre de formation">
+                                        <option value="">Toutes les formations</option>
+                                        @foreach ($formations as $formation)
+                                            <option value="{{ $formation->titre }}" {{ request('formation') == $formation->titre ? 'selected' : '' }}>
+                                                {{ $formation->titre }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <button type="submit" class="btn btn-primary ms-3">Filtrer</button>
+                                </form>
+                            </div>
+                        </div> --}}
                         <div class="table-responsive">
                             <table class="table text-secondary text-center">
                                 <thead>
@@ -59,13 +74,14 @@
                                         <th
                                             class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
                                             statue</th>
-                                        <th
-                                            class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Action</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($users as $user)
+                                        @if ($user->role === 'admin')
+                                            @continue
+                                        @endif
                                         <tr>
                                             <td class="align-middle bg-transparent border-bottom">{{ $user->id }}
                                             </td>
@@ -77,29 +93,23 @@
                                                 {{ $user->role }}</td>
                                             <td class="text-center align-middle bg-transparent border-bottom">16/08/18
                                             </td>
-
                                             <td class="text-center align-middle bg-transparent border-bottom">
                                                 <form action="{{ route('inscription.acceptInFormation', $user->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('put')
-                                                    <input type="hidden" name="userid" value={{ $user->id }}>
+                                                    <input type="hidden" name="userid" value="{{ $user->id }}">
                                                     <button class="btn bg-success text-white" name="in_formation"
                                                         value="accepter" onclick="this.form.submit()"
-                                                        @if ($user->in_formation) disabled @endif>Accepte</button>
+                                                        @if ($user->in_formation) disabled @endif>Accepter</button>
                                                     <button class="btn bg-danger text-white" name="in_formation"
                                                         value="refuser" onclick="this.form.submit()"
                                                         @if ($user->in_formation === false) disabled @endif>Refuser</button>
                                                 </form>
                                             </td>
-
-                                            <td class="text-center align-middle bg-transparent border-bottom">
-                                                <a href="#"><i class="fas fa-user-edit"
-                                                        aria-hidden="true"></i></a>
-                                                <a href="#"><i class="fas fa-trash" aria-hidden="true"></i></a>
-                                            </td>
                                         </tr>
                                     @endforeach
+
                                 </tbody>
                             </table>
                         </div>

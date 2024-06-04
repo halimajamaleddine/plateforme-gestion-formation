@@ -14,14 +14,9 @@ class Formateur extends Model
     protected $fillable = ['nom', 'prenom', 'statue'];
 
 
-    public function formations()
-    {
-        return $this->hasMany(Formation::class);
-    }
-
     public function sessions()
     {
-        return $this->hasMany(Session::class);
+        return $this->hasMany(Session::class );
     }
 
 

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('contenu', 100);
             $table->timestamp('date')->useCurrent();
             $table->foreignId('formateur_id')->constrained();
-            $table->string('ressource', 100)->nullable();
+            $table->string('fichier')->nullable();
             $table->timestamps();
         });
     }
