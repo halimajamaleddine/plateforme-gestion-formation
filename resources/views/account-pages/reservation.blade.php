@@ -9,6 +9,8 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="pb-0 card-header">
+                            <br>
+                            <br>
                             <div class="row">
                                 <div class="col-6">
                                     <h5 class="">Reservation de ressources</h5>
@@ -58,32 +60,34 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($reservations as $reservation) --}}
-                                    <tr>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                            {{-- {{$reservation ->$nom_ressource}} --}}
-                                        </td>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                        
-                                        </td>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                        </td>
-                                        <td class="align-middle bg-transparent border-bottom">
-                                        </td>
-                                        <td class="text-center align-middle bg-transparent border-bottom">
-                                            <form action="{{ route('inscription.acceptInFormation') }}" method="POST">
-                                                @csrf
-                                                @method('put')
-                                                <input type="hidden" name="userid" value="">
-                                                <button class="btn bg-success text-white" name="in_formation"
-                                                    value="accepter" onclick="this.form.submit()">Reserver</button>
-                                                <button class="btn bg-danger text-white" name="in_formation"
-                                                    value="refuser" onclick="this.form.submit()">Libere</button>
-                                            </form>
-                                        </td>
-
-                                    </tr>
-                                    {{-- @endforeach --}}
+                                    @foreach ($sessions as $session)
+                                        <tr>
+                                            <td class="align-middle bg-transparent border-bottom">
+                                                {{ $session->nom_ressource }}
+                                            </td>
+                                            <td class="align-middle bg-transparent border-bottom">
+                                                {{ $session->type_ressource }}
+                                            </td>
+                                            <td class="align-middle bg-transparent border-bottom">
+                                                {{ $session->datedebut }}
+                                            </td>
+                                            <td class="align-middle bg-transparent border-bottom">
+                                                {{ $session->datefin }}
+                                            </td>
+                                            <td class="text-center align-middle bg-transparent border-bottom">
+                                                <form action="{{ route('inscription.acceptInFormation') }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('put')
+                                                    <input type="hidden" name="userid" value="">
+                                                    <button class="btn bg-success text-white" name="in_formation"
+                                                        value="accepter" onclick="this.form.submit()">Reserver</button>
+                                                    <button class="btn bg-danger text-white" name="in_formation"
+                                                        value="refuser" onclick="this.form.submit()">Libere</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -93,9 +97,7 @@
         </div>
         <x-app.footer />
     </main>
-
 </x-app-layout>
-
 <script src="/assets/js/plugins/datatables.js"></script>
 <script>
     const dataTableBasic = new simpleDatatables.DataTable("#datatable-search", {
@@ -118,6 +120,12 @@
     });
 </script>
 <style>
+    body {
+        background: url('../assets/img/back-reservation.jpg') no-repeat center center fixed;
+        background-size: cover;
+        margin-top: 0px;
+    }
+
     .btn-a {
         padding: 10px 20px;
         background: #007bff;

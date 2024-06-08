@@ -56,11 +56,6 @@ class FormationController extends Controller
 
         return redirect()->route('profile')->with('success', 'Formation ajoutée avec succès!');
 }
-    
-
-
-
-
     /**
      * Display the specified resource.
      */

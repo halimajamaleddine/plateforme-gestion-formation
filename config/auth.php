@@ -2,6 +2,9 @@
 
 return [
 
+
+    'email_verification' => true,
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults

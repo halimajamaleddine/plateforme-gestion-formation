@@ -15,14 +15,40 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $query = User::query();
 
-        $users = User::all();
+        // Apply filters if they are present
+        if ($request->has('grade') && $request->grade != '') {
+            $query->where('grade', $request->grade);
+        }
+
+        if ($request->has('etablissement') && $request->etablissement != '') {
+            $query->where('etablissement', $request->etablissement);
+        }
+
+        if ($request->has('anciennete') && $request->anciennete != '') {
+            $query->where('anciennete', $request->anciennete);
+        }
+
+        // Exclude administrators
+        $query->where('role', '!=', 'admin');
+
+        $users = $query->get();
         $formations = Formation::all();
+
+        // Retrieve the distinct values for filters
+        $grades = User::distinct()->pluck('grade');
+        $etablissements = User::distinct()->pluck('etablissement');
+        $anciennetes = User::distinct()->pluck('anciennete');
+
         return view('account-pages.users-management', [
             'users' => $users,
-            'formations' => $formations
+            'formations' => $formations,
+            'grades' => $grades,
+            'etablissements' => $etablissements,
+            'anciennetes' => $anciennetes,
         ]);
     }
 
@@ -38,10 +64,10 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request , User $user)
+    public function store(Request $request, User $user)
     {
-       
-        
+
+
 
         // return redirect()->route('users-management')->with('success', 'Utilisateur et inscription créés avec succès.');
     }
@@ -60,7 +86,6 @@ class UserController extends Controller
      */
     public function edit(UserModele $userModele)
     {
-        
     }
 
     /**
@@ -74,7 +99,7 @@ class UserController extends Controller
             'grade' => $request->grade,
             'motivations' => $request->motivations,
             'telephone' => $request->telephone,
-        ]); 
+        ]);
         return redirect()->route('sucess-page')->with('success', 'Inscription réussie.');
         // if ($user) {
         //     $updatedUser = User::find(Auth::user()->id);   
@@ -114,5 +139,16 @@ class UserController extends Controller
     public function destroy(UserModele $userModele)
     {
         //
+    }
+    public function acceptSelected(Request $request)
+    {
+        $selectedUserIds = $request->input('selected_users', []);
+
+        if (count($selectedUserIds) > 0) {
+            User::whereIn('id', $selectedUserIds)->update(['in_formation' => true]);
+            return redirect()->route('users.index')->with('success', 'Les utilisateurs sélectionnés ont été acceptés.');
+        } else {
+            return redirect()->route('users.index')->with('error', 'Aucun utilisateur sélectionné.');
+        }
     }
 }

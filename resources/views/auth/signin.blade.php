@@ -1,3 +1,4 @@
+
 <x-guest-layout>
     <main class="main-content  mt-0">
         <section>

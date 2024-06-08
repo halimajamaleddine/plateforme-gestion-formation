@@ -12,8 +12,8 @@ class ReservationController extends Controller
      */
     public function index()
     { 
-        $reservations = Session::all();
-        return view('account-pages.reservation', compact('reservations'));
+        $sessions = Session::all();
+        return view('account-pages.reservation', compact('sessions'));
     }
 
     /**

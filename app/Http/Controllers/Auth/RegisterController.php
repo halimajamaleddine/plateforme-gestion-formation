@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
 
 class RegisterController extends Controller

@@ -83,4 +83,3 @@
     </main>
 
 </x-guest-layout>
-
