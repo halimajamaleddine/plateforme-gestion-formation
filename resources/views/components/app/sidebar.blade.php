@@ -117,9 +117,14 @@
                     </a>
                 </li>
             @endif
-
+             
 
         </ul>
     </div>
-
+    <li class="nav-item dropdown d-flex align-center ps-2" style="text-align: center">
+        <form method="POST" action="{{ route('logout') }}" class="nav-link px-0">
+            @csrf
+            <button type="submit" class="btn btn-sm btn-outline-primary">Déconnexion</button>
+        </form>
+    </li> 
 </aside>

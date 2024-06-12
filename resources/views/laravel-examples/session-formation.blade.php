@@ -3,119 +3,35 @@
         <x-app.navbar />
         <div class="px-5 py-4 container-fluid">
             <div class="container">
-                <div class="text-end mb-3">
-                    <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Ajouter une nouvelle session</a>
-                </div>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Ajouter une session de formation</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="{{ route('sessions.store') }}" method="POST">
-                                    @method('POST')
-                                    @csrf
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-9 col-12">
-                                            @if (session('error'))
-                                                <div class="alert alert-danger" role="alert" id="alert">
-                                                    {{ session('error') }}
-                                                </div>
-                                            @endif
-                                            @if (session('success'))
-                                                <div class="alert alert-success" role="alert" id="alert">
-                                                    {{ session('success') }}
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="mb-6 row justify-content-center">
-                                        <div class="col-lg-15">
-                                            <div class="card" id="basic-info">
-                                                <div class="pt-0 card-body">
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <label for="datedebut">Date début <span class="text-danger">*</span></label>
-                                                            <input type="date" name="datedebut" id="datedebut" class="form-control">
-                                                            @error('datedebut')
-                                                                <span class="text-danger text-sm">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <label for="datefin">Date fin <span class="text-danger">*</span></label>
-                                                            <input type="date" name="datefin" id="datefin" class="form-control">
-                                                            @error('datefin')
-                                                                <span class="text-danger text-sm">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <label for="salle">Salle <span class="text-danger">*</span></label>
-                                                            <input type="text" name="salle" id="salle" class="form-control">
-                                                            @error('salle')
-                                                                <span class="text-danger text-sm">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <label for="formateur_id">Formateur <span class="text-danger">*</span></label>
-                                                            <select name="formateur_id" id="formateur_id" class="form-control">
-                                                                <option value="">Sélectionner un formateur</option>
-                                                                @foreach ($formateurs as $formateur)
-                                                                    <option value="{{ $formateur->id }}">{{ $formateur->nom }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                            @error('formateur_id')
-                                                                <span class="text-danger text-sm">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <label for="formations_id">Formation <span class="text-danger">*</span></label>
-                                                        <select name="formations_id" id="formations_id" class="form-control">
-                                                            <option value="">Sélectionner une formation</option>
-                                                            @foreach ($formations as $formation)
-                                                                <option value="{{ $formation->id }}">{{ $formation->titre }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @error('formations_id')
-                                                            <span class="text-danger text-sm">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <h5>Ressource</h5>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <label for="nom_ressource">Nom de la ressource <span class="text-danger">*</span></label>
-                                                        <input type="text" name="nom_ressource" id="nom_ressource" class="form-control">
-                                                        @error('nom_ressource')
-                                                            <span class="text-danger text-sm">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <label for="type_ressource">Type de ressource <span class="text-danger">*</span></label>
-                                                        <input type="text" name="type_ressource" id="type_ressource" class="form-control">
-                                                        @error('type_ressource')
-                                                            <span class="text-danger text-sm">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
+                <div class="row mt-3">
+                    @foreach ($sessions as $session)
+                        <div class="col-lg-4">
+                            <div class="card card-margin">
+                                <div class="card-header no-border">
+                                    <h5 class="card-title">{{ $session->formation->titre }}</h5>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <div class="widget-49">
+                                        <div class="widget-49-title-wrapper">
+                                            <div class="widget-49-date-primary">
+                                                <span class="widget-49-date-day">{{ \Carbon\Carbon::parse($session->datedebut)->translatedFormat('d') }}</span>
+                                                <span class="widget-49-date-month">{{ \Carbon\Carbon::parse($session->datedebut)->translatedFormat('F') }}</span>
+                                            </div>
+                                            <div class="widget-49-meeting-info">
+                                                <span class="widget-49-pro-title">{{ $session->type_ressource }}</span>
                                             </div>
                                         </div>
+                                        <ol class="widget-49-meeting-points">
+                                            <li class="widget-49-meeting-item">Numero de salle :<b><span>{{ $session->salle }}</span></b></li>
+                                            <li class="widget-49-meeting-item">Formateur :<b><span>{{ $session->formateur->nom }}</span></b></li>
+                                            <li class="widget-49-meeting-item">Ressource:<b><span>{{ $session->nom_ressource }}</span></b></li>
+                                        </ol>
+                                        
                                     </div>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn btn-primary">Ajouter</button>
-                            </div>
-                            </form>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -123,46 +39,6 @@
     </main>
 </x-app-layout>
 
-            {{-- fin modal --}}
-            {{-- affichage des cards des sassion  --}}
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card card-margin">
-                        <div class="card-header no-border">
-                            <h5 class="card-title">MOM</h5>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="widget-49">
-                                <div class="widget-49-title-wrapper">
-                                    <div class="widget-49-date-primary">
-                                        <span class="widget-49-date-day">09</span>
-                                        <span class="widget-49-date-month">apr</span>
-                                    </div>
-                                    <div class="widget-49-meeting-info">
-                                        <span class="widget-49-pro-title">PRO-08235 DeskOpe. Website</span>
-                                        <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
-                                    </div>
-                                </div>
-                                <ol class="widget-49-meeting-points">
-                                    <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
-                                    <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
-                                    <li class="widget-49-meeting-item"><span>Session timeout increase to 30
-                                            minutes</span></li>
-                                </ol>
-                                <div class="widget-49-meeting-action">
-                                    <a href="#" class="btn btn-sm btn-flash-border-primary">View All</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <x-app.footer />
-    </main>
-
-</x-app-layout>
 
 
 <style>

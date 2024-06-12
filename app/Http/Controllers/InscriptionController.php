@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Formateur;
+use App\Models\Session;
 use App\Models\Formation;
 use App\Models\Inscription;
 use Illuminate\Http\Request;
@@ -16,10 +18,12 @@ class InscriptionController extends Controller
         $formations = Formation::all();
         return view('dashboard', compact('formations'));
     }
-    public function inscription()
+    public function sessionUser()
     {
+        $sessions = Session::all();
         $formations = Formation::all();
-        return view('inscription', compact('formations'));
+        $formateurs = Formateur::all();
+        return view('laravel-examples.session-formation', compact('sessions','formations','formateurs'));
     }
     
     /**

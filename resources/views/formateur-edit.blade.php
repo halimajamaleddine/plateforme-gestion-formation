@@ -53,3 +53,16 @@
         </div>
     </form>
 </div>
+<style>
+     body {
+        background: url('../assets/img/back-session.jpg') no-repeat center center fixed;
+        background-size: cover;
+        margin-top: 0px;
+    }
+    .main-content {
+        background: rgba(255, 255, 255, 0.8)  no-repeat center center fixed;
+        /* Semi-transparent white background */
+        padding: 20px;
+        border-radius: 10px;
+    }
+</style>

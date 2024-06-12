@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Session;
 use App\Models\Formateur;
 use App\Models\Formation;
+use PDF;
 use Illuminate\Http\Request;
 
 class AttestationController extends Controller
@@ -31,7 +32,44 @@ class AttestationController extends Controller
             'sessions' => $sessions
         ]);
     }
+    public function bulkPrint(Request $request)
+    {
+        // Valider les entrées
+        $request->validate([
+            'userids' => 'required|array',
+            'userids.*' => 'exists:users,id',
+        ]);
 
+        // Récupérer les utilisateurs sélectionnés
+        $userIds = $request->input('userids');
+        $users = User::whereIn('id', $userIds)->get();
+
+        // Générer les PDF pour chaque utilisateur
+        $pdfs = [];
+        foreach ($users as $user) {
+            $data = ['user' => $user];
+            $pdf = PDF::loadView('account-pages.attestation', $data); // Utilisez votre propre vue ici
+            $pdfs[] = $pdf;
+        }
+
+        // Fusionner les PDF en un seul fichier ou les traiter selon votre besoin
+        // Pour l'exemple, nous allons les télécharger séparément sous forme de fichier zip
+
+        // Créer un fichier zip
+        $zip = new \ZipArchive;
+        $zipFileName = 'attestations.zip';
+
+        if ($zip->open(public_path($zipFileName), \ZipArchive::CREATE) === TRUE) {
+            foreach ($pdfs as $index => $pdf) {
+                $fileName = 'attestation_' . $users[$index]->id . '.pdf';
+                $zip->addFromString($fileName, $pdf->output());
+            }
+            $zip->close();
+        }
+
+        // Retourner le fichier zip pour téléchargement
+        return response()->download(public_path($zipFileName))->deleteFileAfterSend(true);
+    }
     /**
      * Show the form for creating a new resource.
      */

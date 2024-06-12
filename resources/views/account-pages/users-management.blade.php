@@ -167,6 +167,13 @@
         <x-app.footer />
     </main>
 </x-app-layout>
+<style>
+    body {
+        background: url('../assets/img/back-user.jpg') no-repeat center center fixed;
+        background-size: cover;
+        margin-top: 0px;
+    }
+</style>
 
 <script src="/assets/js/plugins/datatables.js"></script>
 <script>
@@ -179,5 +186,5 @@
 
     document.getElementById('accept-selected-btn').addEventListener('click', function() {
         document.getElementById('accept-users-form').submit();
-    }); <
-    /
+    });
+</script>

@@ -709,12 +709,9 @@
             <b>
                 Le Président par intérim de l'Université Mohammed V de Rabat , attest ,par 
                 la présente que , Mme {{ $user->nom }} {{ $user->prenom }} à la {{$user->etablissement}} 
-                Rabat , a bénéficié d'une session de formation sur @foreach ($formateurs as $formateur){{ $formateur->titre }}, @endforeach
-                @foreach ($sessions as $session)
-                <?php
-                $date = \Carbon\Carbon::parse($session->date);
-                ?>
-                le{{ $date->translatedFormat('l d F Y') }} au centre de d'innovation Pédagogique . @endforeach
+                Rabat , a bénéficié d'une session de formation sur , 
+                
+                le au centre de d'innovation Pédagogique . 
                 En foi de quoi , la présente attestation est délivrée pour servir et valoir ce que 
                 de droit .
             </b>

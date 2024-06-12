@@ -1,9 +1,7 @@
 <x-app-layout>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
 
-        <head>
-            <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        </head>
+        
         <x-app.navbar />
 
         <div class="container mt-5">
@@ -120,19 +118,16 @@
                                                 <div class="widget-49-meeting-info">
                                                     <span
                                                         class="widget-49-pro-title">{{ $session->type_ressource }}</span>
-                                                    <span
-                                                        class="widget-49-meeting-time">{{ \Carbon\Carbon::parse($session->datedebut)->format('H:i') }}
-                                                        to
-                                                        {{ \Carbon\Carbon::parse($session->datefin)->format('H:i') }}</span>
+                                                    
                                                 </div>
                                             </div>
                                             <ol class="widget-49-meeting-points">
                                                 <li class="widget-49-meeting-item">Numero de salle
-                                                    :<span>{{ $session->salle }}</span></li>
+                                                    :<b><span>    {{ $session->salle }}</span></b></li>
                                                 <li class="widget-49-meeting-item">Formateur
-                                                    :<span>{{ $session->formateur->nom }}</span></li>
+                                                    :<b><span>    {{ $session->formateur->nom }}</span></b></li>
                                                 <li class="widget-49-meeting-item">
-                                                    Ressource:<span>{{ $session->nom_ressource }}</span></li>
+                                                    Ressource:<b><span>   {{ $session->nom_ressource }}</span></b></li>
                                             </ol>
                                             <div class="widget-49-meeting-action">
                                                 <a href="{{ route('sessions.show', $session->id) }}"
@@ -152,7 +147,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        <x-app.footer />
+      
     </main>
 </x-app-layout>
 
@@ -160,17 +155,11 @@
 
 <style>
     body {
-        background: url('../assets/img/back-session.jpg') no-repeat center center fixed;
+        background: url('../assets/img/back-user.jpg') no-repeat center center fixed;
         background-size: cover;
         margin-top: 0px;
     }
-    .main-content {
-        background: rgba(255, 255, 255, 0.8)  no-repeat center center fixed;
-        /* Semi-transparent white background */
-        padding: 20px;
-        border-radius: 10px;
-    }
-
+   
     .card-margin {
         margin-bottom: 1.875rem;
     }

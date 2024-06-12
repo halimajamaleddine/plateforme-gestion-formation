@@ -100,7 +100,7 @@ class UserController extends Controller
             'motivations' => $request->motivations,
             'telephone' => $request->telephone,
         ]);
-        return redirect()->route('sucess-page')->with('success', 'Inscription réussie.');
+        return redirect()->route('sucess-page')->with('success', 'Dossier d\'inscription au cours de traitement.');
         // if ($user) {
         //     $updatedUser = User::find(Auth::user()->id);   
         //     Inscription::create([
@@ -127,9 +127,6 @@ class UserController extends Controller
                 'in_formation' => false
             ]);
         }
-
-
-
         return redirect()->route('users-management')->with('success', 'Inscription réussie.');
     }
 

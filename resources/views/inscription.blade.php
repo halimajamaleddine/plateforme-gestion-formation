@@ -113,7 +113,13 @@
                 </div>
             </form>
         </div>
-        <x-app.footer />
+        
     </main>
-
 </x-app-layout>
+<style>
+     body {
+        background: url('../assets/img/back-session.jpg') no-repeat center center fixed;
+        background-size: cover;
+        margin-top: 0px;
+    }
+</style>

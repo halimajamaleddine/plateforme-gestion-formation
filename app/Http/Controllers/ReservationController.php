@@ -15,7 +15,20 @@ class ReservationController extends Controller
         $sessions = Session::all();
         return view('account-pages.reservation', compact('sessions'));
     }
-
+    public function updateReservationStatus(Request $request)
+{
+    $session = Session::find($request->session_id);
+    
+    if ($request->in_formation == 'accepter') {
+        $session->disponibilite_ressource = 1;
+    } elseif ($request->in_formation == 'refuser') {
+        $session->disponibilite_ressource = 0;
+    }
+    
+    $session->save();
+    
+    return redirect()->back()->with('success', 'Statut de la ressource mis à jour avec succès.');
+}
     /**
      * Show the form for creating a new resource.
      */

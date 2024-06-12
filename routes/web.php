@@ -47,8 +47,8 @@ Route::post('/reset-password', [ResetPasswordController::class, 'store'])->middl
 
 // Route de la page de succès
 Route::get('/success-page', function () {
-    return view('success-page');
-})->name('success-page');
+    return view('sucess-page');
+})->name('sucess-page');
 
 // Route de la page d'accueil redirigeant vers le tableau de bord
 Route::get('/', function () {
@@ -59,6 +59,8 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [InscriptionController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/inscription', [InscriptionController::class, 'inscription'])->name('inscription');
+    Route::get('/dashboard/session', [InscriptionController::class, 'sessionUser'])->name('session.formation');
+
 
     Route::get('/tables', function () {
         $formateurs = Formateur::all();
@@ -120,3 +122,9 @@ Route::resource('users', UserController::class);
 Route::resource('inscriptions', InscriptionController::class);
 Route::resource('sessions', SessionController::class);
 // Route::get('/tables', [FormateurController::class, 'index'])->name('tables')->middleware('auth');
+
+
+Route::post('/attestation/bulk', [AttestationController::class, 'bulkPrint'])->name('attestation.bulk');
+
+Route::put('posts/{post}', [PostController::class, 'update'])->name('posts.update');
+Route::put('/inscription/acceptInFormation', [ReservationController::class, 'updateReservationStatus'])->name('inscription.acceptInFormation');

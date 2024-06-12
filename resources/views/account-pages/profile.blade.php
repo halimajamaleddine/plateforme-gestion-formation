@@ -43,6 +43,7 @@
                         </div>
                         <div class="card-body p-3">
                             <div class="row">
+                                <!-- Liste des formations -->
                                 @foreach ($formations as $formation)
                                     <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
                                         <div
@@ -57,31 +58,147 @@
                                                         <div
                                                             class="blur shadow d-flex align-items-center w-100 border-radius-md border border-white mt-8 p-3">
                                                             <div class="w-50">
-                                                                <p class="text-dark text-sm font-weight-bold mb-1">Sara
-                                                                    Lamalo</p>
                                                                 <p class="text-xs text-secondary mb-0">
                                                                     {{ $formation->date }}</p>
                                                             </div>
-                                                            
-                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="javascript:;">
-                                            <h4 class="font-weight-semibold">
-                                                {{ $formation->titre }}
-                                            </h4>
+                                        <a href="javascript:;" data-bs-toggle="modal"
+                                            data-bs-target="#editModal-{{ $formation->id }}">
+                                            <h4 class="font-weight-semibold">{{ $formation->titre }}</h4>
                                         </a>
-                                        <p class="mb-4">
-                                            {{ $formation->objectif }}
-                                        </p>
+                                        <p class="mb-4">{{ $formation->objectif }}</p>
                                         <a href="javascript:;"
-                                            class="text-dark font-weight-semibold icon-move-right mt-auto w-100 mb-5">
-                                            Read post
+                                            class="text-dark font-weight-semibold icon-move-right mt-auto w-100 mb-5"
+                                            data-bs-toggle="modal" data-bs-target="#editModal-{{ $formation->id }}">
+                                            Modifier le post
                                             <i class="fas fa-arrow-right-long text-sm ms-1" aria-hidden="true"></i>
                                         </a>
+                                    </div>
+                                    <!-- Modal d'édition -->
+                                    <div class="modal fade" id="editModal-{{ $formation->id }}" tabindex="-1"
+                                        aria-labelledby="editModalLabel-{{ $formation->id }}" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="editModalLabel-{{ $formation->id }}">
+                                                        Modifier la formation</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{ route('posts.update', $formation->id) }}"
+                                                        method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class="mb-3 row justify-content-center">
+                                                            <div class="col-lg-9 col-2">
+                                                                <div class="card" id="basic-info">
+                                                                    <div class="pt-0 card-body">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <label
+                                                                                    for="titre-{{ $formation->id }}">Titre
+                                                                                    <span
+                                                                                        class="text-danger">*</span></label>
+                                                                                <input type="text" name="titre"
+                                                                                    id="titre-{{ $formation->id }}"
+                                                                                    value="{{ $formation->titre }}"
+                                                                                    class="form-control">
+                                                                                @error('titre')
+                                                                                    <span
+                                                                                        class="text-danger text-sm">{{ $message }}</span>
+                                                                                @enderror
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <label
+                                                                                    for="objectif-{{ $formation->id }}">Objectif
+                                                                                    <span
+                                                                                        class="text-danger">*</span></label>
+                                                                                <input type="text" name="objectif"
+                                                                                    id="objectif-{{ $formation->id }}"
+                                                                                    value="{{ $formation->objectif }}"
+                                                                                    class="form-control">
+                                                                                @error('objectif')
+                                                                                    <span
+                                                                                        class="text-danger text-sm">{{ $message }}</span>
+                                                                                @enderror
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <label
+                                                                                    for="contenu-{{ $formation->id }}">Contenu
+                                                                                    <span
+                                                                                        class="text-danger">*</span></label>
+                                                                                <textarea name="contenu" id="contenu-{{ $formation->id }}" class="form-control" rows="5">{{ $formation->contenu }}</textarea>
+                                                                                @error('contenu')
+                                                                                    <span
+                                                                                        class="text-danger text-sm">{{ $message }}</span>
+                                                                                @enderror
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <label
+                                                                                    for="formateur_id-{{ $formation->id }}">Formateur
+                                                                                    <span
+                                                                                        class="text-danger">*</span></label>
+                                                                                <select name="formateur_id"
+                                                                                    id="formateur_id-{{ $formation->id }}"
+                                                                                    class="form-control">
+                                                                                    @foreach ($formateurs as $formateur)
+                                                                                        <option
+                                                                                            value="{{ $formateur->id }}"
+                                                                                            {{ $formation->formateur_id == $formateur->id ? 'selected' : '' }}>
+                                                                                            {{ $formateur->nom }}
+                                                                                        </option>
+                                                                                    @endforeach
+                                                                                </select>
+                                                                                @error('formateur_id')
+                                                                                    <span
+                                                                                        class="text-danger text-sm">{{ $message }}</span>
+                                                                                @enderror
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <label
+                                                                                    for="fichier-{{ $formation->id }}">Fichier</label>
+                                                                                <input type="file" name="fichier"
+                                                                                    id="fichier-{{ $formation->id }}"
+                                                                                    class="form-control">
+                                                                                @if ($formation->fichier)
+                                                                                    <p>Current File: <a
+                                                                                            href="{{ asset('storage/' . $formation->fichier) }}"
+                                                                                            target="_blank">{{ $formation->fichier }}</a>
+                                                                                    </p>
+                                                                                @endif
+                                                                                @error('fichier')
+                                                                                    <span
+                                                                                        class="text-danger text-sm">{{ $message }}</span>
+                                                                                @enderror
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Fermer</button>
+                                                            <button type="submit" class="btn btn-primary">Mettre à
+                                                                jour</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 @endforeach
 

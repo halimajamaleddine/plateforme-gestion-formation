@@ -40,50 +40,30 @@
                             <table class="table text-secondary text-center">
                                 <thead>
                                     <tr>
-                                        <th
-                                            class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Nom de ressources </th>
-                                        <th
-                                            class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Type de ressource </th>
-
-                                        <th
-                                            class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Date debut </th>
-                                        <th
-                                            class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Date fin </th>
-                                        <th
-                                            class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">
-                                            Reservation </th>
-
+                                        <th class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">Nom de ressources </th>
+                                        <th class="text-left text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">Type de ressource </th>
+                                        <th class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">Date debut </th>
+                                        <th class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">Date fin </th>
+                                        <th class="text-center text-uppercase font-weight-bold bg-transparent border-bottom text-secondary">Reservation </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($sessions as $session)
                                         <tr>
-                                            <td class="align-middle bg-transparent border-bottom">
-                                                {{ $session->nom_ressource }}
-                                            </td>
-                                            <td class="align-middle bg-transparent border-bottom">
-                                                {{ $session->type_ressource }}
-                                            </td>
-                                            <td class="align-middle bg-transparent border-bottom">
-                                                {{ $session->datedebut }}
-                                            </td>
-                                            <td class="align-middle bg-transparent border-bottom">
-                                                {{ $session->datefin }}
-                                            </td>
+                                            <td class="align-middle bg-transparent border-bottom">{{ $session->nom_ressource }}</td>
+                                            <td class="align-middle bg-transparent border-bottom">{{ $session->type_ressource }}</td>
+                                            <td class="align-middle bg-transparent border-bottom">{{ $session->datedebut }}</td>
+                                            <td class="align-middle bg-transparent border-bottom">{{ $session->datefin }}</td>
                                             <td class="text-center align-middle bg-transparent border-bottom">
-                                                <form action="{{ route('inscription.acceptInFormation') }}"
-                                                    method="POST">
+                                                <form action="{{ route('inscription.acceptInFormation') }}" method="POST">
                                                     @csrf
                                                     @method('put')
-                                                    <input type="hidden" name="userid" value="">
-                                                    <button class="btn bg-success text-white" name="in_formation"
-                                                        value="accepter" onclick="this.form.submit()">Reserver</button>
-                                                    <button class="btn bg-danger text-white" name="in_formation"
-                                                        value="refuser" onclick="this.form.submit()">Libere</button>
+                                                    <input type="hidden" name="session_id" value="{{ $session->id }}">
+                                                    @if ($session->disponibilite_ressource == 0)
+                                                        <button class="btn bg-success text-white" name="in_formation" value="accepter">Reserver</button>
+                                                    @else
+                                                        <button class="btn bg-danger text-white" name="in_formation" value="refuser">Libere</button>
+                                                    @endif
                                                 </form>
                                             </td>
                                         </tr>

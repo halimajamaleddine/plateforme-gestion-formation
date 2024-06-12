@@ -168,3 +168,10 @@
     </main>
 
 </x-app-layout>
+<style>
+     body {
+        background: url('../assets/img/back-user.jpg') no-repeat center center fixed;
+        background-size: cover;
+        margin-top: 0px;
+    }
+</style>
